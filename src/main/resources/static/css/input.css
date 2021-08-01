@@ -1,0 +1,80 @@
+.user-icon {
+    display: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -5rem;
+    margin-bottom: 1.3rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 6rem;
+    text-align: center;
+    color: white;
+    background-color: rgba(116, 48, 54, 1);
+    text-shadow: .13rem .13rem rgba(116, 48, 54, 0.7);
+    box-shadow: .3rem .3rem rgba(128, 128, 128, .5);
+}
+
+.container {
+    margin-top: 4.5rem;
+    width: 20rem;
+    height: 26rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: .07rem solid rgb(100, 39, 62);
+    background-color: white;
+    box-shadow: 0.4rem .4rem .2rem rgba(65, 25, 40, 0.5);
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+i {
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+span {
+    font-size:1.2rem;
+    color: dimgray;
+}
+
+
+input {
+    width: 15rem;
+    height: 2.4rem;
+    border-radius: .3rem;
+    text-align: center;
+    background-color: rgba(243, 243, 243, 0.692);
+    font-size: .8rem;
+    padding-bottom: .25rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
+}
+
+.login {
+    margin-top: 1.8rem;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+    box-shadow: .2rem .1rem .3rem rgb(100, 39, 62);
+}
+
+input:invalid, textarea:invalid {
+    border: .12rem dashed rgb(190, 0, 0);
+}
+
+input:invalid:required, textarea:invalid:required{
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0.575), rgb(255, 240, 192));
+}
+
+input:valid, textarea:valid{
+border: .1rem solid rgb(100, 39, 62);
+
+}

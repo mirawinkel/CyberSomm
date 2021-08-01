@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="head::head"></div>
+    <body>
+    <nav th:replace="navbar::navbar"></nav>
+
+      <div class="row">
+        <div class="col-6 mx-auto d-flex flex-column text-center align-items-center">
+          <h1 class="mb-3">CyberSomm</h1>
+          <img class="indexImg" th:src="@{/images/pairing.jpg}" alt="food and wine pairing">
+          <h2 class="text-nowrap mt-3">Your food and wine pairing expert</h2>
+        </div>
+        <div class="tile mx-auto" style="width:65%; text-align: center;">
+          CyberSomm is a virtual sommelier assistant meant to make the process of selecting and finding the perfect wine for your occasion as easy as opening it up to enjoy it. We utilize a system designed by the brightest minds in the wine community to ensure that you will love what you drink, and that it pairs superbly with what you are eating. We also provide a shopping helping you find the best selections to you in your local area based on your recommendations. CyberSomm, a professional at your fingertips.
+        </div>
+      </div>
+      
+
+
+<div th:replace="footer::footer"></div>
+ 
+    </body>
+</html>

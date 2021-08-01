@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head"></div>
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<h1>Submission Successful</h1>
+<h2 th:text="'Thank you ' + ${contact.name}"></h2>
+<h3>We appreciate you reaching out!</h3>
+<a href="/contact">Submit another message</a>
+
+
+<script type="text/javascript" src="../static/js/contact.js"></script>
+<div th:replace="footer::footer"></div>
+
+</body>
+</html>

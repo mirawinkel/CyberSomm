@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head"></div>
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+    
+  <div class="row">
+    <div class="col d-flex flex-column align-items-center">
+      <h1 class="mb-5">Sommelier</h1>
+      <h2 class="mb-1" id="question">What would you like to pair?</h2>
+      <div class="d-flex align-items-center p-3 my-3 r justify-content-around">
+          
+        <div class="lh-1 d-flex">
+          <button class="somm button mr-5" id="button1">Pair wine with food</button>
+          <button class="somm button ml-5 mr-5" id="button2">Pair food with wine</button>
+          <button class="somm button ml-5" id="button3">Pair wine with life</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="d-flex align-items-center p-3 my-3 rounded shadow-sm justify-content-around">
+      <div class="lh-1 d-flex">
+        <button class="somm button" onClick="pair.reset()">Reset</button>
+      </div>
+    </div>
+
+<div th:replace="footer::footer"></div>
+    <script type="text/javascript" src="../static/js/pair.js"></script>
+    <script type="text/javascript" src="../static/js/foodPair.js"></script>
+    <script type="text/javascript" src="../static/js/winePair.js"></script>
+    <script type="text/javascript" src="../static/js/lifePair.js"></script>
+    <script type="text/javascript" src="../static/js/somm.js"></script>
+
+
+  </body>
+</html>

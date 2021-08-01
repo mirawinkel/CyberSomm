@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head"></div>
+<link rel="stylesheet" th:href="@{/css/input.css}">
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="flexContainer mb-2 text-center">
+    <h1>Contact the CyberSomm Team</h1>
+  </div>
+<div class="flexContainer">
+    <form action="#" th:action="@{/contact}" th:object="${contact}" method="post" id="form">
+        <table style="width:100%;max-width:550px;border:0;" padding="8" spacing="0">
+            <tr>
+                <td>
+                    <label for="Name">Name:</label>
+                </td>
+                <td>
+                    <input name="Name" type="text" th:field="*{name}" maxlength="60" style="width:100%;max-width:250px;" id="name" placeholder="Your name" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Email">Email:</label>
+                </td>
+                <td>
+                    <input name="Email" type="email" th:field="*{email}" maxlength="60" style="width:100%;max-width:250px;" id="email" placeholder="sender@email.com" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Subject">Subject:</label>
+                </td>
+                <td>
+                    <input name="Subject" type="text" th:field="*{subject}" maxlength="60" style="width:100%;max-width:250px;" id="subject" placeholder="Subject..." required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Message">Message:</label>
+                </td>
+                <td>
+                    <textarea  required  name="Message" th:field="*{message}" rows="7" cols="40" style="width:100%;max-width:22rem;" id="message" placeholder="Message..."></textarea >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="submit" value="Submit" class=" mt-2 button" id="submitButton"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="reset" value="Reset" class="button mt-3" id="resetButton"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" th:src="@{/js/contact.js}"></script>
+
+<div th:replace="footer::footer"></div>
+
+</body>
+</html>

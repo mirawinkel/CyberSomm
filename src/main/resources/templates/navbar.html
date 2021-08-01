@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light mb-5">
+    <a class="navbar-brand ml-4" id="brandtext" th:href="@{index}"><img th:src="@{images/Grapes.png}" class="navLogo" >CyberSomm</a>
+    <button class="navbar-toggler mt-1 mb-2" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav" id="fade">
+            <li class="nav-item" justifyContent="flex-end">
+                <a class="nav-link" th:href="@{index}">Welcome </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    User
+                </a>
+                <div class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" id="firstDropdown" th:href="@{login}">Login</a>
+                    <a class="dropdown-item" th:href="@{register}">Register</a>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" th:href="@{sommelier}">Sommelier</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{store}">Store</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{contact}">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{about}">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head"></div>
+<link rel="stylesheet" th:href="@{/css/input.css}">
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row d-flex text-center justify-content-center">
+    <div class="col-4">
+        <h1>Register</h1>
+    </div>
+</div>
+<div class="container mb-5">
+    <div class="user-icon"><i class="fas fa-user"></i></div>
+    <div class="login-box">
+        <span>Register New User Account</span>
+        <form>
+            <input type="text" placeholder="Email" id="email" class="login" required><br/>
+            <input type="password" placeholder="Password" id="password" class="login"  required><br/>
+            <input type="password" placeholder="Confirm Password" id="confirm" class="login"  required><br/>
+            <button type="submit" value="Login" id="login" class="mt-4 mb-1 button">Register</button>
+        </form>
+    </div>
+</div>
+
+<div th:replace="footer::footer"></div>
+ 
+    </body>
+</html>
