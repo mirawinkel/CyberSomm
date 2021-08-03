@@ -22,33 +22,33 @@ public class WineServiceImpl implements WineService {
     }
 
     @Override
-    public Wine findWineByAppellation(String appellation) {
-        return wineRepository.findWineByAppellation(appellation);
+    public Iterable<Wine> findWinesByAppellation(String appellation) {
+        return wineRepository.findWinesByAppellation(appellation);
     }
 
     @Override
-    public Wine findWineByDescriptor(String descriptor) {
-        return wineRepository.findWineByDescriptor(descriptor);
+    public Iterable<Wine> findWinesByDescriptor(String descriptor) {
+        return wineRepository.findWinesByDescriptor(descriptor);
     }
 
     @Override
-    public Wine findWineByVarietal(String varietal) {
-        return wineRepository.findWineByVarietal(varietal);
+    public Iterable<Wine> findWinesByVarietal(String varietal) {
+        return wineRepository.findWinesByVarietal(varietal);
     }
 
     @Override
-    public Wine findWineByVintage(int vintage) {
-        return wineRepository.findWineByVintage(vintage);
+    public Iterable<Wine> findWinesByVintage(int vintage) {
+        return wineRepository.findWinesByVintage(vintage);
     }
 
     @Override
-    public Wine findWineByProducer(String producer) {
-        return wineRepository.findWineByProducer(producer);
+    public Iterable<Wine> findWinesByProducer(String producer) {
+        return wineRepository.findWinesByProducer(producer);
     }
 
     @Override
-    public Wine findWineByName(String name) {
-        return wineRepository.findWineByName(name);
+    public Iterable<Wine> findWinesByName(String name) {
+        return wineRepository.findWinesByName(name);
     }
 
     @Override
