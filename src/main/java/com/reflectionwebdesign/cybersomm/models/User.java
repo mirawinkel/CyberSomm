@@ -7,9 +7,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -23,12 +23,16 @@ class User implements Serializable {
 
     @Id
     @Column(name = "email", nullable = false, length = 60)
+    @NotNull(message="Can't be empty")
     private String email;
 
     @Column()
+    @NotNull(message="Can't be empty")
     protected String name;
 
     @Column
+//    @Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})",message = "Enter valid password")
+    @NotNull(message="Can't be empty")
     protected String password;
 
     @OneToMany
@@ -36,10 +40,11 @@ class User implements Serializable {
     @ElementCollection
     protected Set<Wine> favorites;
 
-    @OneToMany
-    @ToString.Exclude
-    @ElementCollection
-    protected Set<Wine> purchases;
+    @Transient
+    private String passwordRepeat;
+
+    @Transient
+    public boolean isEquals;
 
     public String getEmail() {
         return email;
@@ -54,7 +59,7 @@ class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(email, user.email) && Objects.equals(name, user.name) && Objects.equals(password, user.password) && Objects.equals(favorites, user.favorites) && Objects.equals(purchases, user.purchases);
+        return email.equals(user.email) && name.equals(user.name) && password.equals(user.password);
     }
 
     @Override

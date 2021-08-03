@@ -17,7 +17,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
 }
 
 body:after {
@@ -67,7 +67,7 @@ body:after {
 }
 
 #brandtext {
-    font-family: Sacramento;
+    font-family: Sacramento, cursive;
     font-size: 2.5rem;
     font-weight: 500;
 }
@@ -84,7 +84,7 @@ body:after {
 }
 
 h1 {
-    font-family: Sacramento;
+    font-family: Sacramento, cursive;
     font-size:5rem;
     text-shadow: .1rem .07rem .2rem rgb(100, 39, 62);
     margin-top: -2rem;
@@ -92,7 +92,11 @@ h1 {
 h2 {
     font-weight: 350;
 }
-
+.errorText {
+    color: rgb(223, 0, 0);
+    font-size: .7rem;
+    margin-bottom: -1rem;
+}
 .space {
     font-size: 4rem;
     word-spacing: 1rem;
@@ -129,9 +133,13 @@ h2 {
 }
 
 .resultElement {
-    color: rgba(155, 43, 67);
+    color: rgb(155, 43, 67);
     text-shadow: .04rem .03rem .17rem rgb(80, 80, 80);
     font-size: 1.3rem;
+}
+
+.result {
+    
 }
 
 .tile {
