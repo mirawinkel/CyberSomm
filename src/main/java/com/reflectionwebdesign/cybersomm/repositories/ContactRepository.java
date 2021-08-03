@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface ContactRepository extends CrudRepository<Contact, Integer> {
     Contact findContactByEmail(String email);
     Iterable<Contact> findAll();
+    void deleteContactByEmail(String email);
 }

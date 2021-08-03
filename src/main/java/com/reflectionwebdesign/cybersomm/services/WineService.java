@@ -1,9 +1,8 @@
-package com.reflectionwebdesign.cybersomm.repositories;
+package com.reflectionwebdesign.cybersomm.services;
 
 import com.reflectionwebdesign.cybersomm.models.Wine;
-import org.springframework.data.repository.CrudRepository;
 
-public interface WineRepository extends CrudRepository<Wine, Integer> {
+public interface WineService {
     Wine findWineById(int id);
     Wine findWineByAppellation(String appellation);
     Wine findWineByDescriptor(String descriptor);
