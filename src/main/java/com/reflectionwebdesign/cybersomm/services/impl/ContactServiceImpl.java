@@ -4,10 +4,12 @@ import com.reflectionwebdesign.cybersomm.models.Contact;
 import com.reflectionwebdesign.cybersomm.repositories.ContactRepository;
 import com.reflectionwebdesign.cybersomm.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ContactServiceImpl implements ContactService {
 
-    ContactRepository contactRepository;
+    private final ContactRepository contactRepository;
 
     @Autowired
     public ContactServiceImpl(ContactRepository contactRepository) {

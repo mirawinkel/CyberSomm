@@ -4,10 +4,12 @@ import com.reflectionwebdesign.cybersomm.models.Wine;
 import com.reflectionwebdesign.cybersomm.repositories.WineRepository;
 import com.reflectionwebdesign.cybersomm.services.WineService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WineServiceImpl implements WineService {
 
-    private WineRepository wineRepository;
+    private final WineRepository wineRepository;
 
     @Autowired
     public WineServiceImpl(WineRepository wineRepository) {

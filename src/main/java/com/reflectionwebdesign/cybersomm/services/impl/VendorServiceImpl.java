@@ -5,10 +5,12 @@ import com.reflectionwebdesign.cybersomm.models.Wine;
 import com.reflectionwebdesign.cybersomm.repositories.VendorRepository;
 import com.reflectionwebdesign.cybersomm.services.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VendorServiceImpl implements VendorService {
 
-    VendorRepository vendorRepository;
+    private final VendorRepository vendorRepository;
 
     @Autowired
     public VendorServiceImpl(VendorRepository vendorRepository) {
