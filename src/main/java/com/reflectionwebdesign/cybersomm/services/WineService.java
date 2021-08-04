@@ -3,6 +3,8 @@ package com.reflectionwebdesign.cybersomm.services;
 import com.reflectionwebdesign.cybersomm.models.Wine;
 
 public interface WineService {
+
+    Wine save(Wine wine);
     Wine findWineById(int id);
     Iterable<Wine> findWinesByAppellation(String appellation);
     Iterable<Wine> findWinesByDescriptor(String descriptor);

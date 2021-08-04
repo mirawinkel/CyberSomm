@@ -22,7 +22,7 @@ class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "email", nullable = false, length = 60)
+    @Column(nullable = false, length = 60)
     @NotNull(message="Can't be empty")
     private String email;
 
@@ -37,7 +37,6 @@ class User implements Serializable {
 
     @OneToMany
     @ToString.Exclude
-    @ElementCollection
     protected Set<Wine> favorites;
 
     @Transient

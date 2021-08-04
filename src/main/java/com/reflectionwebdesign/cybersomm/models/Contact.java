@@ -7,6 +7,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,14 +17,19 @@ public @Getter
 @ToString
 @RequiredArgsConstructor
 class Contact implements Serializable {
+    @Transient
     private final long serialVersionUID= 1L;
 
     @Id
-    @Column(name = "email", nullable = false, length = 60)
+    @Column(nullable = false, length = 60)
     private String email;
 
     String name;
+
+    @Transient
     String subject;
+
+    @Transient
     String message;
 
     @Override

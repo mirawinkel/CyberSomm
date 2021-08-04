@@ -5,6 +5,7 @@ import com.reflectionwebdesign.cybersomm.repositories.UserRepository;
 import com.reflectionwebdesign.cybersomm.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,11 +17,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(User user) {
+    public User save(User user) {
         return userRepository.save(user);
     }
 
     @Override
+    @Transactional
     public void deleteUserByEmail(String email) {
         userRepository.deleteUserByEmail(email);
     }

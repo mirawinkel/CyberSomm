@@ -5,6 +5,7 @@ import com.reflectionwebdesign.cybersomm.repositories.WineRepository;
 import com.reflectionwebdesign.cybersomm.services.WineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class WineServiceImpl implements WineService {
@@ -14,6 +15,11 @@ public class WineServiceImpl implements WineService {
     @Autowired
     public WineServiceImpl(WineRepository wineRepository) {
         this.wineRepository = wineRepository;
+    }
+
+    @Override
+    public Wine save(Wine wine) {
+        return wineRepository.save(wine);
     }
 
     @Override
@@ -52,6 +58,7 @@ public class WineServiceImpl implements WineService {
     }
 
     @Override
+    @Transactional
     public void deleteWineById(int id) {
         wineRepository.deleteWineById(id);
     }

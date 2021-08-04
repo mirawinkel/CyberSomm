@@ -46,7 +46,7 @@ public class RegisterController {
             model.addAttribute("exists", "Account with that email already exists");
             return "register";
         }
-        userService.createUser(user);
+        userService.save(user);
         return "success";
     }
 }

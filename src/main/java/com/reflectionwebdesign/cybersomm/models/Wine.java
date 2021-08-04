@@ -7,6 +7,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,14 +16,13 @@ import java.util.Set;
 public @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 class Wine implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private int id;
 
     @Column
@@ -49,6 +49,10 @@ class Wine implements Serializable {
 
     @Column
     protected double price;
+
+    public Wine() {
+        this.descriptor = new HashSet<>();
+    }
 
     public int getId() {
         return id;

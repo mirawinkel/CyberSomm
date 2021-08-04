@@ -5,6 +5,7 @@ import com.reflectionwebdesign.cybersomm.repositories.ContactRepository;
 import com.reflectionwebdesign.cybersomm.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -27,7 +28,13 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void deleteContactByEmail(String email) {
-        contactRepository.deleteContactByEmail(email);
+    @Transactional
+    public void deleteContactByEmailContaining(String email) {
+        contactRepository.deleteContactByEmailContaining(email);
+    }
+
+    @Override
+    public Contact save(Contact contact) {
+        return contactRepository.save(contact);
     }
 }
