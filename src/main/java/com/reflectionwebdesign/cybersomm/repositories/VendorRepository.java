@@ -5,8 +5,8 @@ import com.reflectionwebdesign.cybersomm.models.Wine;
 import org.springframework.data.repository.CrudRepository;
 
 public interface VendorRepository extends CrudRepository<Vendor, Integer> {
-    Vendor findVendorByCity(String city);
+    Iterable<Vendor> findVendorsByCity(String city);
     Vendor findVendorById(int id);
     Vendor findVendorByName(String name);
-    Vendor findVendorByWineListIsContaining(Wine wine);
+    Iterable<Vendor> findVendorsByWineListIsContaining(Wine wine);
 }

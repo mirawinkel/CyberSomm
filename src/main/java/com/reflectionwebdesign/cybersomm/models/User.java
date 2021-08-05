@@ -15,7 +15,6 @@ import java.util.Set;
 @Entity
 public @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 class User implements Serializable {
     @Serial
@@ -26,8 +25,7 @@ class User implements Serializable {
     @NotNull(message="Can't be empty")
     private String email;
 
-    @Column()
-    @NotNull(message="Can't be empty")
+    @Column
     protected String name;
 
     @Column
@@ -44,6 +42,9 @@ class User implements Serializable {
 
     @Transient
     public boolean isEquals;
+
+    @ManyToMany
+    private Set<Role> roles;
 
     public String getEmail() {
         return email;
@@ -64,5 +65,13 @@ class User implements Serializable {
     @Override
     public int hashCode() {
         return 562048007;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "email = " + email + ", " +
+                "name = " + name + ", " +
+                "password = " + password + ")";
     }
 }

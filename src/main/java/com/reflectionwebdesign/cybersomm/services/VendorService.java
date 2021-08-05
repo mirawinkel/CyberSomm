@@ -5,8 +5,10 @@ import com.reflectionwebdesign.cybersomm.models.Wine;
 
 public interface VendorService {
 
-    Vendor findVendorByCity(String city);
+    Vendor save(Vendor vendor);
+    Iterable<Vendor> findVendorsByCity(String city);
     Vendor findVendorById(int id);
     Vendor findVendorByName(String name);
-    Vendor findVendorByWineListIsContaining(Wine wine);
+    Iterable<Vendor> findVendorsByWineListIsContaining(Wine wine);
+    void deleteById(int id);
 }

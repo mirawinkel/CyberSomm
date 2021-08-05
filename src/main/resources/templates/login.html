@@ -23,10 +23,14 @@
     <div class="user-icon"><i class="fas fa-user"></i></div>
     <div class="login-box">
         <span>User Login</span>
-        <form>
-            <input type="text" placeholder="Email" class="login"  id="email" required><br/>
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+            <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login" required>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errorText"></span>
+            <div><span th:if="${notRegister}"  th:text="${notRegister}" class="errorText"></span></div>
 
-            <input type="password" placeholder="Password" class="login" id="password" required><br/>
+            <input type="password" th:field="*{password}" placeholder="Password" class="login" id="password" required><br/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>
+            <div><span th:if="${invalid}"  th:text="${invalid}" class="errorText"></span></div>
 
             <button type="submit" value="Login" id="login" class="mt-4 mb-1 button login">Login</button>
         </form>

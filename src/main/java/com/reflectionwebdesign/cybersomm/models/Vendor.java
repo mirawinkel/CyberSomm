@@ -9,6 +9,7 @@ import org.hibernate.Hibernate;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,13 +17,12 @@ import java.util.Set;
 public @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 class Vendor implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
 
@@ -38,10 +38,13 @@ class Vendor implements Serializable {
     @Column
     protected String country;
 
-    @OneToMany
+    @ManyToMany(mappedBy = "vendors")
     @ToString.Exclude
-    @ElementCollection
     protected Set<Wine> wineList;
+
+    public Vendor() {
+        this.wineList = new HashSet<>();
+    }
 
     public int getId() {
         return id;

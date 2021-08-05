@@ -34,7 +34,6 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    //
     public String submitForm(@Valid @ModelAttribute("user") User user, Model model, BindingResult bindingResult) {
         user.isEquals = user.getPassword().equals(user.getPasswordRepeat());
         if(bindingResult.hasErrors()) {
@@ -47,6 +46,6 @@ public class RegisterController {
             return "register";
         }
         userService.save(user);
-        return "success";
+        return "registerSuccess";
     }
 }

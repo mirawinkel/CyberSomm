@@ -1,7 +1,8 @@
 package com.reflectionwebdesign.cybersomm.models;
 
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -15,14 +16,18 @@ import java.util.Set;
 @Entity
 public @Getter
 @Setter
-@ToString
+@Table(name="wine")
+@SecondaryTable(name="user_favorites", pkJoinColumns = @PrimaryKeyJoinColumn(name = "favorites_id"))
+@SecondaryTable(name="wine_descriptor", pkJoinColumns = @PrimaryKeyJoinColumn(name = "wine_id"))
 class Wine implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    @PrimaryKeyJoinColumn
     private int id;
 
     @Column
@@ -50,8 +55,17 @@ class Wine implements Serializable {
     @Column
     protected double price;
 
+    @ManyToMany
+    @JoinTable(
+            name="vendor_wine_list",
+            joinColumns = @JoinColumn(name = "wine_id"),
+            inverseJoinColumns = @JoinColumn(name = "vendor_id")
+    )
+    Set<Vendor> vendors;
+
     public Wine() {
         this.descriptor = new HashSet<>();
+        this.vendors = new HashSet<>();
     }
 
     public int getId() {
@@ -74,5 +88,19 @@ class Wine implements Serializable {
     @Override
     public int hashCode() {
         return 255879828;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "name = " + name + ", " +
+                "producer = " + producer + ", " +
+                "vintage = " + vintage + ", " +
+                "varietal = " + varietal + ", " +
+                "appellation = " + appellation + ", " +
+                "country = " + country + ", " +
+                "descriptor = " + descriptor + ", " +
+                "price = " + price + ")";
     }
 }
