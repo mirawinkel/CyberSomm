@@ -14,15 +14,15 @@ public class WineServiceImplTest {
     WineService wineService;
 
     @Test
-    void testFindWinesByAppellation() {
+    void testFindWinesByRegion() {
         Wine wine = new Wine();
-        wine.setAppellation("test");
+        wine.setRegion("test");
         wineService.save(wine);
         Wine wine2 = new Wine();
-        wine2.setAppellation("tester");
+        wine2.setRegion("tester");
         wineService.save(wine2);
-        Iterable<Wine> results = wineService.findWinesByAppellation("test");
-        results.forEach(result -> assertEquals(wine.getAppellation(), result.getAppellation()));
+        Iterable<Wine> results = wineService.findWinesByRegion("test");
+        results.forEach(result -> assertEquals(wine.getRegion(), result.getRegion()));
     }
 
     @Test
@@ -33,19 +33,19 @@ public class WineServiceImplTest {
         Wine wine2 = new Wine();
         wine2.getDescriptor().add("tester");
         wineService.save(wine2);
-        Iterable<Wine> results = wineService.findWinesByAppellation("test");
+        Iterable<Wine> results = wineService.findWinesByRegion("test");
         results.forEach(result -> assertTrue(result.getDescriptor().contains("test")));
     }
 
     @Test
     void testFindWinesByVintage() {
         Wine wine = new Wine();
-        wine.setVintage(1);
+        wine.setVintage("1");
         wineService.save(wine);
         Wine wine2 = new Wine();
-        wine2.setVintage(2);
+        wine2.setVintage("2");
         wineService.save(wine2);
-        Iterable<Wine> results = wineService.findWinesByVintage(1);
+        Iterable<Wine> results = wineService.findWinesByVintage("1");
         results.forEach(result -> assertEquals(wine.getVintage(), result.getVintage()));
     }
 

@@ -28,8 +28,8 @@ public class WineServiceImpl implements WineService {
     }
 
     @Override
-    public Iterable<Wine> findWinesByAppellation(String appellation) {
-        return wineRepository.findWinesByAppellation(appellation);
+    public Iterable<Wine> findWinesByRegion(String region) {
+        return wineRepository.findWinesByRegion(region);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class WineServiceImpl implements WineService {
     }
 
     @Override
-    public Iterable<Wine> findWinesByVintage(int vintage) {
+    public Iterable<Wine> findWinesByVintage(String vintage) {
         return wineRepository.findWinesByVintage(vintage);
     }
 

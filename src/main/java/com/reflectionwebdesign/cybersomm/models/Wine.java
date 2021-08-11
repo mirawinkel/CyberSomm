@@ -37,13 +37,13 @@ class Wine implements Serializable {
     protected String producer;
 
     @Column
-    protected int vintage;
+    protected String vintage;
 
     @Column
     protected String varietal;
 
     @Column
-    protected String appellation;
+    protected String region;
 
     @Column
     protected String country;
@@ -51,6 +51,9 @@ class Wine implements Serializable {
     @Column
     @ElementCollection
     protected Set<String> descriptor;
+
+    @Column
+    protected double cost;
 
     @Column
     protected double price;
@@ -98,7 +101,7 @@ class Wine implements Serializable {
                 "producer = " + producer + ", " +
                 "vintage = " + vintage + ", " +
                 "varietal = " + varietal + ", " +
-                "appellation = " + appellation + ", " +
+                "appellation = " + region + ", " +
                 "country = " + country + ", " +
                 "descriptor = " + descriptor + ", " +
                 "price = " + price + ")";

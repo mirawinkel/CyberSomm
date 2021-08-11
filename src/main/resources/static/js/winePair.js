@@ -9,9 +9,7 @@ function red() {
     pair.drawButton('Big and Bold', boldRed, 'Medium Bodied', mediumRed, 'Light and Elegant', lightRed)
 }
 function boldRed() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
+    findWines('Cabernet Sauvignon');
     showResults();
 }
 function mediumRed() {

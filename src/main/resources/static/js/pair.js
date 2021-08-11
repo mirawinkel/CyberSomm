@@ -7,6 +7,7 @@ class PairingManager {
         this.event2 = winePair;
         this.event3 = lifePair;
         this.buttonShow = 3;
+        this.rawResults = [];
         this.results = [];
     }
     drawButton(html1, newEvent1, html2, newEvent2, html3, newEvent3) {
@@ -33,7 +34,6 @@ class PairingManager {
     }
 
     endpoint() {
-        
         this.drawButton('Reset', foodPair, 'End', winePair, 'Point', lifePair);
         question.innerHTML = 'You have reached an endpoint (work in progress)';
     }
