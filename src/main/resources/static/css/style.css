@@ -117,7 +117,7 @@ h2 {
 }
 
 .button {
-    background: radial-gradient(ellipse, rgba(155, 57, 86, 0.76) 5%, rgba(139, 57, 74, 0.507) 20%, rgba(146, 47, 55, 0.616) 30%, rgba(146, 55, 85, 0.692) 40%, transparent 80%), radial-gradient(ellipse farthest-corner at right bottom, rgb(161, 55, 87) 0%, rgba(155, 43, 67, 0.808) 8%, rgb(153, 49, 58) 30%, rgb(124, 47, 73) 40%, transparent 80%),                radial-gradient(ellipse farthest-corner at left top, rgba(206, 40, 76, 0.897) 0%, rgb(167, 71, 84) 8%, rgb(158, 41, 41) 25%, rgb(141, 33, 66) 62.5%, rgba(124, 31, 67, 0.76) 100%);
+    background: radial-gradient(ellipse, rgba(155, 57, 86, 0.76) 5%, rgba(139, 57, 74, 0.507) 20%, rgba(146, 47, 55, 0.616) 30%, rgba(146, 55, 85, 0.692) 40%, transparent 80%), radial-gradient(ellipse farthest-corner at right bottom, rgb(161, 55, 87) 0%, rgba(155, 43, 67, 0.808) 8%, rgb(153, 49, 58) 30%, rgb(124, 47, 73) 40%, transparent 80%),  radial-gradient(ellipse farthest-corner at left top, rgba(206, 40, 76, 0.897) 0%, rgb(167, 71, 84) 8%, rgb(158, 41, 41) 25%, rgb(141, 33, 66) 62.5%, rgba(124, 31, 67, 0.76) 100%);
     color: white;
     width: 15rem;
     height: 2.5rem;
@@ -136,10 +136,40 @@ h2 {
     color: rgb(155, 43, 67);
     text-shadow: .04rem .03rem .17rem rgb(80, 80, 80);
     font-size: 1.3rem;
+    margin-top: 1.2rem;
 }
 
-.result {
-    
+.pageNumbers {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0rem 8rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageNumbers button {
+    height: 1.3rem;
+    width: 1.6rem;
+    border: none;
+    border-radius: .15rem;
+    appearance: none;
+    outline: none;
+    color: mistyrose;
+    cursor: pointer;
+    margin: .7rem .7rem;
+    font-size: .8rem;
+    text-shadow: 0px 0px .2rem rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px .2rem rgba(0, 0, 0, .2);
+    background-color: #d15454;
+    transition: .4s;
+ }
+.pageNumbers button:hover {
+    background-color: #a72450;
+    box-shadow: inset 0px 0px .2rem rgba(0, 0, 0, .2);
+}
+.pageNumbers button.active {
+    background-color: #a72450;
+    box-shadow: inset 0px 0px .2rem rgba(0, 0, 0, .2);
 }
 
 .tile {
