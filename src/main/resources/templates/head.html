@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 <body>
-<div id="head" th:fragment="head">
+<div id="head" th:fragment="head(title)">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -29,7 +29,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/images/fav-icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <title id="pageTitle">CyberSomm</title>
+        <title th:text="${title}" id="pageTitle"></title>
     </head>
 </div>
 
