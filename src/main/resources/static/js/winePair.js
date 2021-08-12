@@ -10,7 +10,6 @@ function red() {
 }
 function boldRed() {
     findWines('Cabernet Sauvignon');
-    showResults();
 }
 function mediumRed() {
     pair.results.push("Results still a work in progress");

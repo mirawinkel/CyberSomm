@@ -50,15 +50,13 @@ button2.addEventListener('click', winePair)
 button3.addEventListener('click', lifePair)
 resetButton.addEventListener('click', reset)
 
-function findWines(varietal) {
-    const request = new Request('http://localhost:8080/findWine?varietal=' + varietal)
-    fetch(request)
-    .then(response => response.json())
-    .then(data => {
-        data.forEach((wine) => {
-            pair.rawResults.push(wine)
-        });
-    });
-    pair.rawResults.forEach(wine => pair.results.push(wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region));
 
+async function findWines(varietal) {
+    const response = await fetch('http://localhost:8080/findWine?varietal=' + varietal);
+    const results = await response.json();
+    for await (let wine of results) {
+        pair.results.push(wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price);
+    }
+    await showResults();
 }
+
