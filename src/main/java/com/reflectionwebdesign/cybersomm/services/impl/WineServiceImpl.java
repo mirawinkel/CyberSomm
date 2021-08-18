@@ -23,7 +23,7 @@ public class WineServiceImpl implements WineService {
     }
 
     @Override
-    public Wine findWineById(int id) {
+    public Wine findWineById(long id) {
         return wineRepository.findWineById(id);
     }
 
@@ -59,7 +59,7 @@ public class WineServiceImpl implements WineService {
 
     @Override
     @Transactional
-    public void deleteWineById(int id) {
+    public void deleteWineById(long id) {
         wineRepository.deleteWineById(id);
     }
 }

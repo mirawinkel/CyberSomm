@@ -7,5 +7,6 @@ public interface UserService {
     User save(User user);
     void deleteUserByEmail(String email);
     User findUserByEmail(String email);
+    void encodePassword(User source);
 
 }

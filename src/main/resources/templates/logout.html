@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="head::head('Logout')"></div>
+<body>
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row">
+  <div class="col-6 mx-auto d-flex flex-column text-center align-items-center">
+    <h1>Successfully Logged Out</h1>
+    <a th:href="@{login}">Login</a>
+    <a th:href="@{register}">Register New Account</a>
+  </div>
+</div>
+
+<div th:replace="footer::footer"></div>
+</body>

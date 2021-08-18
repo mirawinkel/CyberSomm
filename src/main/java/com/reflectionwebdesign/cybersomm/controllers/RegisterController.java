@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -45,6 +44,7 @@ public class RegisterController {
             model.addAttribute("exists", "Account with that email already exists");
             return "register";
         }
+        userService.encodePassword(user);
         userService.save(user);
         return "registerSuccess";
     }

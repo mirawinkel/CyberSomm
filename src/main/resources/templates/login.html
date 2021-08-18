@@ -5,7 +5,7 @@
 <link rel="stylesheet" th:href="@{/css/input.css}">
 <title>Login Page</title>
 <style>
-    #email {
+    #username {
         margin-top: 1.3rem;
     }
 </style>
@@ -25,16 +25,19 @@
     <div class="login-box">
         <span>User Login</span>
         <form action="#" th:action="@{/login}" th:object="${user}" method="post">
-            <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login" required>
-            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errorText"></span>
-            <div><span th:if="${notRegister}"  th:text="${notRegister}" class="errorText"></span></div>
+            <input type="text" th:field="*{username}" name="username" placeholder="User Name" id="username" class="login" required>
+<!--            <span th:if="${#fields.hasErrors('username')}" th:errors="*{email}" class="errorText"></span>-->
+<!--            <div><span th:if="${notRegister}"  th:text="${notRegister}" class="errorText"></span></div>-->
 
-            <input type="password" th:field="*{password}" placeholder="Password" class="login" id="password" required><br/>
-            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>
-            <div><span th:if="${invalid}"  th:text="${invalid}" class="errorText"></span></div>
+            <input type="password" th:field="*{password}" name="password" placeholder="Password" class="login" id="password" required><br/>
+<!--            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>-->
+<!--            <div><span th:if="${invalid}"  th:text="${invalid}" class="errorText"></span></div>-->
 
             <button type="submit" value="Login" id="login" class="mt-4 mb-1 button login">Login</button>
         </form>
+        <div th:if="${param.error}">
+            <span th:text="${loginError}" class="errorText"></span>
+        </div>
         <div class="flexContainer" >
             <a href="#" class="mb-3 mt-4">Forgot your password</a>
         </div>

@@ -96,11 +96,14 @@ button3.addEventListener('click', lifePair)
 resetButton.addEventListener('click', Reset)
 
 
-async function FindWines(varietal) {
-    const response = await fetch('http://localhost:8080/findWine?varietal=' + varietal);
-    const results = await response.json();
-    for await (let wine of results) {
-        pair.results.push(wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price);
+async function FindWines(keyword, input) {
+    for await (let item of input) {
+        pair.results.push(item);
+        const response = await fetch('http://localhost:8080/' + keyword + '?' + keyword + '=' + item);
+        const results = await response.json();
+        for await (let wine of results) {
+            pair.results.push(wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price);
+        }
     }
     await ShowResults();
 }

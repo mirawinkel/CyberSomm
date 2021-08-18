@@ -9,45 +9,21 @@ function red() {
     pair.drawButton('Big and Bold', boldRed, 'Medium Bodied', mediumRed, 'Light and Elegant', lightRed)
 }
 function boldRed() {
-    FindWines('Cabernet Sauvignon');
+    let inputs = ['Cabernet Sauvignon', 'Tempranillo'];
+    FindWines('varietal', inputs);
 }
-function mediumRed() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
-function lightRed() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
+
+
 function white() {
     question.innerHTML = 'What kind of white wine are you enjoying?';
     pair.drawButton('Oakey or Buttery', bigWhite, 'Bright and Refreshing', acidWhite, 'Floral or Sweet', sweetWhite)
 }
-function bigWhite() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
+
 function acidWhite() {
     pair.results.push("Results still a work in progress");
     pair.results.push("please check back soon for updates!");
     pair.results.push("cheers from the CyberSomm team");
     ShowResults();
 }
-function sweetWhite() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
-function sparkling() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
+
+

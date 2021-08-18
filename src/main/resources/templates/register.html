@@ -19,18 +19,16 @@
         <span>Register New User Account</span>
         <form action="#" th:action="@{/register}" th:object="${user}" method="post">
             <div>
-                <input type="text" th:field="*{name}" placeholder="Name" id="name" class="login" required>
-                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="errorText"></span>
+                <input type="text" th:field="*{username}" placeholder="Name" id="name" class="login" required>
 
             </div>
             <div>
                 <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login" required>
-                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errorText"></span>
                 <div><span th:if="${exists}"  th:text="${exists}" class="errorText"></span></div>
             </div>
             <div>
                 <input type="password" th:field="*{password}" placeholder="Password" id="password" class="login"  required>
-                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>
+<!--                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>-->
             </div>
             <div>
                 <input type="password" th:field="*{passwordRepeat}" placeholder="Repeat Your Password" id="confirm" class="login"  required>

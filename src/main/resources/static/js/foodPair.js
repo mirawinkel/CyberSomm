@@ -36,7 +36,7 @@ function whiteFish() {
 }
 function whiteFlake() {
     question.innerHTML = 'Is the dish...';
-    pair.drawButton('Butter or Cream Driven', flakeButter, 'Grilled or Seared', flakeGrill, 'Robust or Spicy', flakeSpicy);
+    pair.drawButton('Butter or Cream Driven', flakeButter, 'Grilled or Seared', lightWhite, 'Robust or Spicy', flakeSpicy);
 }
 function  whiteFirm() {
     question.innerHTML = 'Is the dish...';
@@ -51,118 +51,53 @@ function salmonAhi() {
     pair.drawButton('Butter or Cream Driven', biButter, 'Salad or Raw', biSalad, 'Robust or Spicy', biSpicy);
 }
 function  crabButter() {
-    pair.results.push("Oakey Chardonnay to compliment the butter and richness");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function crabSalad() {
-    pair.results.push("Albarino to provide floral and mineral notes playing with delicate flavors");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    pair.results.push("Riesling to compliment the sweetness in the shellfish");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Something Sweeter', sweetWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function crabRobust() {
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and soften the richness");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    pair.results.push("Pinto Noir to give acid to lighten the richness and red fruit to brighten the dish");
-    pair.results.push("Chianti to provide gentle tannin to play with the richness, bright fruit to liven the bited");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness to play with spice");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('White Wine', richWhite, 'Red Wine', lightRed, 'Something Sweet', sweetWhite);
 }
 function  shrimpButter() {
-    pair.results.push("Chenin Blanc to provide richness and rich fruit to compliment the shrimp");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment the shrimp");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    pair.results.push("Riesling to compliment the sweetness in the shrimp");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function shrimpSalad() {
-    pair.results.push("Albarino to provide floral and mineral notes playing with delicate flavors");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment the shrimp");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    pair.results.push("Riesling to compliment the sweetness in the shellfish");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Something Sweeter', sweetWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function shrimpRobust() {
-    pair.results.push("Chenin Blanc to provide richness and rich fruit to compliment the shrimp");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment the shrimp");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Pinto Noir to give acid to lighten the richness and red fruit to brighten the dish");
-    pair.results.push("Riesling to compliment the sweetness in the shrimp and spice in the dish");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness to play with spice");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Something Sweeter', sweetWhite, 'Lighter Wine', lightWhite, 'Something Red', lightRed);
 }
 function biButter() {
-    pair.results.push("Rose to provide acid to cut the richness and minerality");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Something Sweeter', sweetWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function biSalad() {
-    pair.results.push("Albarino to provide floral and mineral notes playing with delicate flavors");
-    pair.results.push("Rose to provide acid to cut the richness and minerality that's especially good with raw oysters");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites, the best for raw oysters");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness");
-    pair.results.push("Riesling to compliment the sweetness in the shellfish");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Something Sweeter', sweetWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function biSpicy() {
-    pair.results.push("Chenin Blanc to provide richness and rich fruit to compliment the shrimp");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Riesling to compliment the sweetness in the shrimp and spice in the dish");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness to play with spice");
-    pair.results.push("Pinto Noir to give acid to lighten the richness and red fruit to brighten the dish");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Something Sweeter', sweetWhite, 'Lighter Wine', lightWhite, 'Something Red', lightRed);
 }
 function flakeButter() {
-    pair.results.push("Oakey Chardonnay to compliment the butter and richness");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
-function flakeGrill() {
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Pinto Gris/Grigio to provide elegant apple and mineral notes");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit/minerality to compliment");
-    ShowResults();
-}
+
 function flakeSpicy() {
-    pair.results.push("Chenin Blanc to provide richness and rich fruit to compliment");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Riesling to compliment the spice in the dish");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness to play with spice");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Something Sweet', sweetWhite);
 }
 function firmButter() {
-    pair.results.push("Oakey Chardonnay to compliment the butter and richness");
-    pair.results.push("Chenin Blanc to compliment the richness with rich fruit");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Rose to provide acid to cut the richness and light fruit to compliment");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function firmGrill() {
     pair.results.push("Oakey Chardonnay to compliment the richness of the fish");

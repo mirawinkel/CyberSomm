@@ -4,6 +4,7 @@ import com.reflectionwebdesign.cybersomm.models.User;
 import com.reflectionwebdesign.cybersomm.repositories.UserRepository;
 import com.reflectionwebdesign.cybersomm.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +17,17 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public User save(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public void encodePassword(User source) {
+        source.setPassword(passwordEncoder.encode(source.getPassword()));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.reflectionwebdesign.cybersomm.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
@@ -28,7 +29,7 @@ class Wine implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     @PrimaryKeyJoinColumn
-    private int id;
+    private long id;
 
     @Column
     protected String name;
@@ -58,6 +59,7 @@ class Wine implements Serializable {
     @Column
     protected double price;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name="vendor_wine_list",
@@ -71,11 +73,11 @@ class Wine implements Serializable {
         this.vendors = new HashSet<>();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

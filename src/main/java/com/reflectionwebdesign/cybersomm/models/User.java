@@ -2,7 +2,6 @@ package com.reflectionwebdesign.cybersomm.models;
 
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,10 +12,9 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-public @Getter
+@Getter
 @Setter
-@RequiredArgsConstructor
-class User implements Serializable {
+public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -26,12 +24,15 @@ class User implements Serializable {
     private String email;
 
     @Column
-    protected String name;
+    @NotNull
+    protected String username;
 
     @Column
 //    @Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})",message = "Enter valid password")
     @NotNull(message="Can't be empty")
     protected String password;
+
+    private String role;
 
     @OneToMany
     @ToString.Exclude
@@ -43,8 +44,16 @@ class User implements Serializable {
     @Transient
     public boolean isEquals;
 
-    @ManyToMany
-    private Set<Role> roles;
+    public User(String email, String username, String password) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = "USER";
+    }
+
+    public User() {
+        this.role = "USER";
+    }
 
     public String getEmail() {
         return email;
@@ -59,7 +68,7 @@ class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return email.equals(user.email) && name.equals(user.name) && password.equals(user.password);
+        return email.equals(user.email) && username.equals(user.username) && password.equals(user.password);
     }
 
     @Override
@@ -71,7 +80,7 @@ class User implements Serializable {
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "email = " + email + ", " +
-                "name = " + name + ", " +
+                "name = " + username + ", " +
                 "password = " + password + ")";
     }
 }
