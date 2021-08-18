@@ -25,15 +25,19 @@
     <div class="login-box">
         <span>User Login</span>
         <form action="#" th:action="@{/login}" th:object="${user}" method="post">
-            <input type="text" th:field="*{username}" name="username" placeholder="User Name" id="username" class="login" required>
+            <div class="form-floating">
+                <input type="text" th:field="*{username}" name="username" placeholder="User Name" id="username" class="login form-control" required>
+                <label for="username" class="labelText">Username</label>
 <!--            <span th:if="${#fields.hasErrors('username')}" th:errors="*{email}" class="errorText"></span>-->
 <!--            <div><span th:if="${notRegister}"  th:text="${notRegister}" class="errorText"></span></div>-->
-
-            <input type="password" th:field="*{password}" name="password" placeholder="Password" class="login" id="password" required><br/>
+            </div>
+            <div class="form-floating">
+                <input type="password" th:field="*{password}" name="password" placeholder="Password" class="login form-control" id="password" required><br/>
+                <label for="password" class="labelText">Password</label>
 <!--            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>-->
 <!--            <div><span th:if="${invalid}"  th:text="${invalid}" class="errorText"></span></div>-->
-
-            <button type="submit" value="Login" id="login" class="mt-4 mb-1 button login">Login</button>
+            </div>
+            <button type="submit" value="Login" id="login" class="mt-2 mb-1 button login">Login</button>
         </form>
         <div th:if="${param.error}">
             <span th:text="${loginError}" class="errorText"></span>

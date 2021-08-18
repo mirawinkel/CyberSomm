@@ -81,7 +81,7 @@ function ShowResults() {
     button1.hidden = true;
     button2.hidden = true;
     button3.hidden = true;
-    resultBox.style = "outline:.12rem solid rgb(100, 39, 62); padding:2rem 2rem 0rem 2rem; width:50rem;"
+    resultBox.style = "outline:.12rem solid rgb(100, 39, 62); padding:2rem 2rem 0 2rem; width:50rem;"
     question.innerHTML = 'The following wines would pair exceptionally with your food today:';
     resultBox.classList.add("backFade");
     question.appendChild(document.createElement("div"));

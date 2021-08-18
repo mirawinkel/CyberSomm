@@ -19,20 +19,31 @@
         <span>Register New User Account</span>
         <form action="#" th:action="@{/register}" th:object="${user}" method="post">
             <div>
-                <input type="text" th:field="*{username}" placeholder="Name" id="name" class="login" required>
+                <div class="form-floating">
+                    <input type="text" th:field="*{username}" placeholder="User Name" id="name" class="login form-control" required>
+                    <label for="name" class="labelText">Username</label>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating">
+                    <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login form-control" required>
+                    <label for="email" class="labelText">Email</label>
+                    <div><span th:if="${exists}"  th:text="${exists}" class="errorText"></span></div>
+                </div>
+            </div>
+            <div>
+                <div class="form-floating">
+                    <input type="password" th:field="*{password}" placeholder="Password" id="password" class="login form-control"  required>
+                    <label for="password" class="labelText">Password</label>
+                </div>
 
             </div>
             <div>
-                <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login" required>
-                <div><span th:if="${exists}"  th:text="${exists}" class="errorText"></span></div>
-            </div>
-            <div>
-                <input type="password" th:field="*{password}" placeholder="Password" id="password" class="login"  required>
-<!--                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorText"></span>-->
-            </div>
-            <div>
-                <input type="password" th:field="*{passwordRepeat}" placeholder="Repeat Your Password" id="confirm" class="login"  required>
-                <div><span th:if="${!user.isEquals}"  th:text="${passError}" class="errorText" ></span></div>
+                <div class="form-floating">
+                    <input type="password" th:field="*{passwordRepeat}" placeholder="Password Repeat" id="confirm" class="login form-control" required>
+                    <label for="confirm" class="labelText">Password Repeat</label>
+                    <div><span th:if="${!user.isEquals}"  th:text="${passError}" class="errorText" ></span></div>
+                </div>
             </div>
             <button type="submit" value="Register" id="register" class="mt-4 mb-1 button">Register</button>
         </form>

@@ -48,7 +48,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         .permitAll()
                         .defaultSuccessUrl("/loginSuccess")
                         .failureUrl("/login?error=true")
-                );
+                )
+                .logout(logout -> logout
+                        .deleteCookies("JSESSIONID"));
+        http.sessionManagement()
+                .invalidSessionUrl("/login");
     }
 
     @Override
