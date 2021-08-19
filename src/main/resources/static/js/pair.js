@@ -28,7 +28,8 @@ class PairingManager {
     }
     reset() {     
         this.results = [];
-        this.drawButton('Pair wine with food', foodPair, 'Pair food with wine', winePair, 'Pair wine with Life', lifePair);
-        question.innerHTML = 'What would you like to pair?';
+        this.drawButton('Appetizers', apps, 'Main Course', main, 'Desserts', dessert);
+        question.innerHTML = 'What kind of food would you like to pair your wine with?';
     }
+
 }

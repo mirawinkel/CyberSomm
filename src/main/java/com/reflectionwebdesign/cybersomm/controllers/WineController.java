@@ -25,7 +25,7 @@ public class WineController {
         return wineService.findWinesByVarietal(varietal);
     }
 
-    @GetMapping(value="/id")
+    @GetMapping(value="/wineId")
     public Wine findById(@RequestParam long id) {
         return wineService.findWineById(id);
     }

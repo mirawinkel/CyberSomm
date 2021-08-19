@@ -9,4 +9,5 @@ public interface VendorRepository extends CrudRepository<Vendor, Integer> {
     Vendor findVendorById(int id);
     Vendor findVendorByName(String name);
     Iterable<Vendor> findVendorsByWineListIsContaining(Wine wine);
+    Iterable<Vendor> findAll();
 }

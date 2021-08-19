@@ -48,4 +48,9 @@ public class VendorServiceImpl implements VendorService {
     public Iterable<Vendor> findVendorsByWineListIsContaining(Wine wine) {
         return vendorRepository.findVendorsByWineListIsContaining(wine);
     }
+
+    @Override
+    public Iterable<Vendor> findAll() {
+        return vendorRepository.findAll();
+    }
 }

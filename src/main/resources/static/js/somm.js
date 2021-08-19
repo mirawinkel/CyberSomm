@@ -90,11 +90,8 @@ function ShowResults() {
     SetupPagination(pair.results);
 }
 
-button1.addEventListener('click', foodPair)
-button2.addEventListener('click', winePair)
-button3.addEventListener('click', lifePair)
+pair.reset()
 resetButton.addEventListener('click', Reset)
-
 
 async function FindWines(keyword, input) {
     for await (let item of input) {
