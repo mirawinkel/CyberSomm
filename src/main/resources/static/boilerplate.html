@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-    <div th:replace="head::head"></div>
-
+<div th:replace="head::head('Page Title')"></div>
+<!--<link rel="stylesheet" th:href="@{/css/*.css}">-->
     <body>
 
         <nav th:replace="navbar::navbar"></nav>
 
 
         <div th:replace="footer::footer"></div>
- 
+<!--        <script type="text/javascript" th:src="@{/js/*.js}"></script>-->
     </body>
 </html>

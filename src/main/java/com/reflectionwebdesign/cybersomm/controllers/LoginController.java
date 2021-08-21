@@ -33,7 +33,7 @@ public class LoginController {
     }
 
     @GetMapping("/loginSuccess")
-    public String loginSuccess(Model model) {
+    public String loginSuccess() {
         return "loginSuccess";
     }
 

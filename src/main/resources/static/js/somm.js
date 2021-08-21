@@ -65,13 +65,15 @@ function DisplayList (items, page) {
     let end = start + rows;
     let paginatedItems = items.slice(start, end);
 
-    for (let i=0; i<paginatedItems.length; i++) {
-        let item = paginatedItems[i];
-
-        let element = document.createElement("div");
-        element.classList.add("resultElement");
-        element.innerHTML = item;
-        question.appendChild(element);
+    for (let wine of paginatedItems) {
+        let div = document.createElement("div");
+        let link = document.createElement("a");
+        link.text = wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price;
+        link.href = "/wineInformation?wineId=" + wine.id;
+        link.target = "_blank";
+        link.classList = "resultLink";
+        question.appendChild(div);
+        div.appendChild(link)
     }
 }
 
@@ -84,7 +86,6 @@ function ShowResults() {
     resultBox.style = "outline:.12rem solid rgb(100, 39, 62); padding:2rem 2rem 0 2rem; width:50rem;"
     question.innerHTML = 'The following wines would pair exceptionally with your food today:';
     resultBox.classList.add("backFade");
-    question.appendChild(document.createElement("div"));
 
     DisplayList(pair.results, currentPage);
     SetupPagination(pair.results);
@@ -95,11 +96,10 @@ resetButton.addEventListener('click', Reset)
 
 async function FindWines(keyword, input) {
     for await (let item of input) {
-        pair.results.push(item);
         const response = await fetch('http://localhost:8080/' + keyword + '?' + keyword + '=' + item);
         const results = await response.json();
         for await (let wine of results) {
-            pair.results.push(wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price);
+            pair.results.push(wine);
         }
     }
     await ShowResults();

@@ -8,5 +8,6 @@ public interface UserService {
     void deleteUserByEmail(String email);
     User findUserByEmail(String email);
     void encodePassword(User source);
+    User findUserByUsername(String name);
 
 }

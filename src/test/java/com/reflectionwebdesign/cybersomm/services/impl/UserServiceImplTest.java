@@ -39,4 +39,15 @@ public class UserServiceImplTest {
         User result = userService.findUserByEmail("test@test.com");
         assertNull(result);
     }
+
+    @Test
+    void testFindUserByUsername() {
+        User user = new User();
+        user.setEmail("test@test.com");
+        user.setUsername("tester");
+        user.setPassword("test");
+        userService.save(user);
+        User result = userService.findUserByUsername("tester");
+        assertEquals(user, result);
+    }
 }

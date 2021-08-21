@@ -31,5 +31,4 @@ class PairingManager {
         this.drawButton('Appetizers', apps, 'Main Course', main, 'Desserts', dessert);
         question.innerHTML = 'What kind of food would you like to pair your wine with?';
     }
-
 }

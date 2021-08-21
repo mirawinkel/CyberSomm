@@ -132,12 +132,14 @@ h2 {
     outline: none;
 }
 
-.resultElement {
+.resultLink {
     color: rgb(155, 43, 67);
     text-shadow: .04rem .03rem .17rem rgb(80, 80, 80);
     font-size: 1.3rem;
     margin-top: 1.2rem;
+    text-decoration: none;
 }
+
 
 .pageNumbers {
     text-align: center;
