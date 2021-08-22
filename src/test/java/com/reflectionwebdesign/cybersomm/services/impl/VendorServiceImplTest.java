@@ -1,6 +1,5 @@
 package com.reflectionwebdesign.cybersomm.services.impl;
 
-import static org.junit.jupiter.api.Assertions.*;
 import com.reflectionwebdesign.cybersomm.models.Vendor;
 import com.reflectionwebdesign.cybersomm.models.Wine;
 import com.reflectionwebdesign.cybersomm.services.VendorService;
@@ -8,6 +7,8 @@ import com.reflectionwebdesign.cybersomm.services.WineService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class VendorServiceImplTest {
@@ -22,8 +23,8 @@ public class VendorServiceImplTest {
     void testFindVendorByName() {
         Vendor vendor = new Vendor();
         vendor.setName("test");
-        vendorService.save(vendor);
-        assertEquals(vendor, vendorService.findVendorByName("test"));
+        Vendor expected = vendorService.save(vendor);
+        assertEquals(expected.getName(), vendorService.findVendorByName("test").getName());
     }
 
     @Test

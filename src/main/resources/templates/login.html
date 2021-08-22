@@ -25,9 +25,9 @@
         <span>User Login</span>
         <form action="#" th:action="@{/login}" th:object="${user}" method="post">
             <div class="form-floating">
-                <input type="text" th:field="*{username}" name="username" placeholder="User Name" id="username" class="login form-control" required>
-                <label for="username" class="labelText">Username</label>
-<!--            <span th:if="${#fields.hasErrors('username')}" th:errors="*{email}" class="errorText"></span>-->
+                <input type="email" th:field="*{email}" name="email" placeholder="Email" id="email" class="login form-control" required>
+                <label for="email" class="labelText">Email</label>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errorText"></span>
 <!--            <div><span th:if="${notRegister}"  th:text="${notRegister}" class="errorText"></span></div>-->
             </div>
             <div class="form-floating">
@@ -40,6 +40,9 @@
         </form>
         <div th:if="${param.error}">
             <span th:text="${loginError}" class="errorText"></span>
+        </div>
+        <div th:if="${param.noUser}">
+            <span th:text="${noUser}" class="errorText"></span>
         </div>
         <div class="flexContainer" >
             <a href="#" class="mb-3 mt-4">Forgot your password</a>

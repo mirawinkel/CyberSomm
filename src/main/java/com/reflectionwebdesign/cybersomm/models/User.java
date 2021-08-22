@@ -1,14 +1,17 @@
 package com.reflectionwebdesign.cybersomm.models;
 
 
+import com.reflectionwebdesign.cybersomm.config.ValidEmail;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,6 +24,8 @@ public class User implements Serializable {
     @Id
     @Column(nullable = false, length = 60)
     @NotNull(message="Can't be empty")
+    @NotEmpty
+    @ValidEmail
     private String email;
 
     @Column
@@ -30,9 +35,20 @@ public class User implements Serializable {
     @Column
 //    @Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})",message = "Enter valid password")
     @NotNull(message="Can't be empty")
+    @NotEmpty
     protected String password;
 
-    private String role;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_email",
+                    referencedColumnName = "email"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id",
+                    referencedColumnName = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 
     @OneToMany
     @ToString.Exclude
@@ -48,11 +64,9 @@ public class User implements Serializable {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.role = "USER";
     }
 
     public User() {
-        this.role = "USER";
     }
 
     public String getEmail() {

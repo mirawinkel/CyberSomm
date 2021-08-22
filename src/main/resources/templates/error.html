@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <div th:replace="head::head('Error')"></div>
-<body>
+<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
 <nav th:replace="navbar::navbar"></nav>
-
 <div class="row">
     <div class="col-6 mx-auto d-flex flex-column text-center align-items-center">
         <h1>OOPS</h1>
-        <h3>Something went wrong</h3>
+        <h3 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h3>
+        <img src="https://c.tenor.com/yCC38OsGnSsAAAAM/sportsmanias-technical-difficulties.gif" alt="page not available error"></img>
+        <a href="index.html" th:href="@{/index}">Back to Home Page</a>
     </div>
 </div>
 

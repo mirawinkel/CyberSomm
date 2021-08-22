@@ -3,34 +3,35 @@
 <body>
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light mb-5">
-    <a class="navbar-brand ms-4" id="brandtext" th:href="@{index}"><img th:src="@{images/Grapes.png}" class="navLogo" alt="Brand Logo" >CyberSomm</a>
+    <a class="navbar-brand ms-4" id="brandtext" th:href="@{index}"><img th:src="@{/images/Grapes.png}" class="navLogo" alt="Brand Logo" >CyberSomm</a>
     <button class="navbar-toggler mt-1 mb-2 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end ms-3" id="navbarNav">
         <ul class="navbar-nav" id="fade">
             <li class="nav-item" justifyContent="flex-end">
-                <a class="nav-link" th:href="@{index}">Welcome</a>
+                <a class="nav-link" th:href="@{/index}">Welcome</a>
             </li>
             <li class="nav-item dropdown ms-3">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     User
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="border: none;">
-                    <li><a class="dropdown-item" id="firstDropdown" th:href="@{login}">Login</a></li>
-                    <li><a class="dropdown-item" th:href="@{register}">Register</a></li>
+                    <li><a class="dropdown-item" id="firstDropdown" th:href="@{/login}">Login</a></li>
+                    <li><a class="dropdown-item" th:href="@{/register}">Register</a></li>
+                    <li><a class="dropdown-item" th:href="@{/user/accountHome}">Account Home</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" th:href="@{sommelier}">Sommelier</a>
+            <li class="nav-item"><a class="nav-link" th:href="@{/sommelier}">Sommelier</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{store}">Store</a>
+                <a class="nav-link" th:href="@{/store}">Store</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{contact}">Contact</a>
+                <a class="nav-link" th:href="@{/contact}">Contact</a>
             </li>
             <li class="nav-item me-4">
-                <a class="nav-link" th:href="@{about}">About</a>
+                <a class="nav-link" th:href="@{/about}">About</a>
             </li>
         </ul>
     </div>

@@ -105,6 +105,10 @@
             <artifactId>bootstrap</artifactId>
             <version>${bootstrap.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
 
 
     </dependencies>

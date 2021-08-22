@@ -40,19 +40,21 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/", "/login", "/register", "/sommelier")
                 .permitAll()
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .usernameParameter("email")
                         .permitAll()
                         .defaultSuccessUrl("/loginSuccess")
-                        .failureUrl("/login?error=true")
-                )
-                .logout(logout -> logout
-                        .deleteCookies("JSESSIONID"));
+                        .failureUrl("/login?error=true"))
+                .logout()
+                .logoutSuccessUrl("/logoutSuccess");
         http.sessionManagement()
-                .invalidSessionUrl("/login");
+                .invalidSessionUrl("/login?noUser=true");
     }
 
     @Override

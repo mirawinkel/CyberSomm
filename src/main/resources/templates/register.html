@@ -20,15 +20,15 @@
         <form action="#" th:action="@{/register}" th:object="${user}" method="post">
             <div>
                 <div class="form-floating">
-                    <input type="text" th:field="*{username}" placeholder="User Name" id="name" class="login form-control" required>
-                    <label for="name" class="labelText">Username</label>
+                    <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login form-control" required>
+                    <label for="email" class="labelText">Email</label>
+                    <div><span th:if="${exists}"  th:text="${exists}" class="errorText"></span></div>
                 </div>
             </div>
             <div>
                 <div class="form-floating">
-                    <input type="email" th:field="*{email}" placeholder="Email" id="email" class="login form-control" required>
-                    <label for="email" class="labelText">Email</label>
-                    <div><span th:if="${exists}"  th:text="${exists}" class="errorText"></span></div>
+                    <input type="text" th:field="*{username}" placeholder="User Name" id="name" class="login form-control" required>
+                    <label for="name" class="labelText">Username</label>
                 </div>
             </div>
             <div>

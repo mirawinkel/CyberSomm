@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head('Account Home')"></div>
+<!--<link rel="stylesheet" th:href="@{/css/*.css}">-->
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row">
+    <div class="col mx-auto text-center d-flex flex-column">
+        <h1 th:text="'Account Home for' + ${currentUser.username}"> </h1>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" value="Logout" id="logout" class="mt-2 mb-1 button login">Logout</button>
+        </form>
+    </div>
+</div>
+
+<div th:replace="footer::footer"></div>
+<!--        <script type="text/javascript" th:src="@{/js/*.js}"></script>-->
+</body>
+</html>
