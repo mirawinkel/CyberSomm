@@ -140,15 +140,12 @@ h2 {
     text-decoration: none;
 }
 
-
-.pageNumbers {
-    text-align: center;
-}
-
 .pageNumbers button {
     height: 1.3rem;
-    width: 1.6rem;
+    min-width: 1.6rem;
+    max-width: 2.1rem;
     border: none;
+    text-align: center;
     border-radius: .15rem;
     appearance: none;
     outline: none;

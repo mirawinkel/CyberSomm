@@ -4,12 +4,8 @@ const button3 = document.getElementById('button3');
 const resetButton = document.getElementById('reset');
 const question = document.getElementById('question');
 const resultBox = document.getElementById('resultBox');
-const pagination  = document.getElementById('pagination');
 
 const pair = new PairingManager
-let currentPage = 1;
-let rows = 12;
-
 
 
 function Reset () {
@@ -33,50 +29,28 @@ function Reset () {
     pair.reset();
 }
 
-function PaginationButton(page, items) {
-    let button = document.createElement('button');
-    button.innerText = page;
-    if (currentPage === page) button.classList.add('active');
-    button.addEventListener('click', function() {
-        currentPage = page;
-        DisplayList(items, currentPage);
-        let currentBtn = document.querySelector('.pageNumbers button.active');
-        currentBtn.classList.remove('active');
-        button.classList.add('active');
-    })
-    return button;
-}
+// function PaginationButton(page, items) {
+//     let button = document.createElement('button');
+//     button.innerText = page;
+//     if (currentPage === page) button.classList.add('active');
+//     button.addEventListener('click', function() {
+//         currentPage = page;
+//         DisplayList(items, currentPage);
+//         let currentBtn = document.querySelector('.pageNumbers button.active');
+//         currentBtn.classList.remove('active');
+//         button.classList.add('active');
+//     })
+//     return button;
+// }
 
-function SetupPagination (items) {
-    pagination.innerHTML = "";
-    let pageCount = Math.ceil(items.length / rows);
-    for (let i = 1; i < pageCount + 1; i++) {
-        let btn = PaginationButton(i, items);
-        pagination.appendChild(btn);
-    }
-}
-
-function DisplayList (items, page) {
-    while (question.firstChild) {
-        question.removeChild(question.firstChild);
-    }
-    page --;
-    let start = rows * page;
-    let end = start + rows;
-    let paginatedItems = items.slice(start, end);
-
-    for (let wine of paginatedItems) {
-        let div = document.createElement("div");
-        let link = document.createElement("a");
-        link.text = wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price;
-        link.href = "/wineInformation?wineId=" + wine.id;
-        link.target = "_blank";
-        link.classList = "resultLink";
-        question.appendChild(div);
-        div.appendChild(link)
-    }
-}
-
+// function SetupPagination (items) {
+//     pagination.innerHTML = "";
+//     let pageCount = Math.ceil(items.length / rows);
+//     for (let i = 1; i < pageCount + 1; i++) {
+//         let btn = PaginationButton(i, items);
+//         pagination.appendChild(btn);
+//     }
+// }
 
 function ShowResults() {
 
@@ -87,8 +61,8 @@ function ShowResults() {
     question.innerHTML = 'The following wines would pair exceptionally with your food today:';
     resultBox.classList.add("backFade");
 
-    DisplayList(pair.results, currentPage);
-    SetupPagination(pair.results);
+    DisplayWineList(pair.results, currentPage);
+    SetupPagination(pair.results, DisplayWineList);
 }
 
 pair.reset()

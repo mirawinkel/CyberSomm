@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head('Vendor Console')"></div>
+<link rel="stylesheet" th:href="@{/css/input.css}">
+<link rel="stylesheet" th:href="@{/css/console.css}">
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row d-flex text-center justify-content-center">
+    <div class="col-8">
+        <div class="row">
+            <h1>Vendor Console</h1>
+            <div th:if="${update}" th:text="'Vendor Successfully Updated'"></div>
+            <div th:if="${deleted}" th:text="'Vendor Successfully Deleted'"></div>
+        </div>
+
+        <div class="row">
+            <div class="vendorContainer container mb-5">
+                <div class="login-box">
+                    <span>Modify Vendor File</span>
+                    <form action="#" th:action="@{/admin/vendorUpdate}" th:object="${vendor}" method="post">
+                        <div th:text="'Vendor Id: ' + ${vendor.id}"></div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="hidden" th:field="*{id}">
+                                <input type="text" th:field="*{name}" placeholder="Name" id="name" class="login form-control" required>
+                                <label for="name" class="labelText">Name</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{city}" placeholder="City" id="city" class="login form-control" required>
+                                <label for="city" class="labelText">City</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{state}" placeholder="State" id="state" class="login form-control" required>
+                                <label for="state" class="labelText">State</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{country}"  placeholder="State" id="country" class="login form-control" required>
+                                <label for="country" class="labelText">Country</label>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" value="Update" id="update" class="mt-4 mb-1 button">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="selectContainer container mb-5">
+                <span>Select Vendor</span>
+                <form action="#" th:action="@{/admin/vendorFind}" th:object="${vendor}" method="post">
+                    <button type="submit" value="Select" id="userSelect" class="mt-4 mb-1 button">Select Vendor</button>
+                    <div>
+                        <div class="form-floating">
+                            <input type="number" th:field="*{id}" placeholder="Id" id="wineSelect" class="login form-control">
+                            <label for="wineSelect" class="labelText">Id</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="selectContainer container mb-5">
+                <span>Delete Vendor</span>
+                <form action="#" th:action="@{/admin/vendorDelete}" th:object="${vendor}" method="post">
+                    <button type="submit" value="Select" class="mt-4 mb-1 button">Delete Vendor</button>
+                    <div>
+                        <div class="form-floating">
+                            <input type="number" th:field="*{id}" placeholder="Id" id="wineDelete" class="login form-control">
+                            <label for="wineSelect" class="labelText">Id</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+            <div class="row">
+                <div class="resultContainer container mb-5">
+                    <div class="backFade" id="resultTarget"></div>
+                    <div class="row d-flex align-items-center justify-content-center flex-wrap pageNumbers" id="pagination"></div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div th:replace="footer::footer"></div>
+<script type="text/javascript" th:src="@{/js/pagination.js}"></script>
+<script type="text/javascript" th:src="@{/js/vendorConsole.js}"></script>
+
+</body>
+</html>

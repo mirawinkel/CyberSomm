@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head('User Console')"></div>
+<link rel="stylesheet" th:href="@{/css/input.css}">
+<link rel="stylesheet" th:href="@{/css/console.css}">
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row d-flex text-center justify-content-center">
+    <div class="col-6">
+        <h1>User Console</h1>
+        <div th:if="${update}" th:text="'User Successfully Updated'"></div>
+        <div th:if="${deleted}" th:text="'User Successfully Deleted'"></div>
+    </div>
+</div>
+<div class="inputContainer container mb-5">
+    <div class="login-box">
+        <span>Modify User File</span>
+        <form action="#" th:action="@{/admin/userUpdate}" th:object="${user}" method="post">
+            <div>
+                <div class="form-floating">
+                    <input type="email" th:field="*{email}" th:value="${user.email}" placeholder="Email" id="email" class="login form-control" required>
+                    <label for="email" class="labelText">Email</label>
+<!--                    <div><span th:if="${exists}"  th:text="${exists}" class="errorText"></span></div>-->
+                </div>
+            </div>
+            <div>
+                <div class="form-floating">
+                    <input type="text" th:field="*{username}" th:value="${user.username}" placeholder="User Name" id="name" class="login form-control" required>
+                    <label for="name" class="labelText">Username</label>
+                </div>
+            </div>
+
+            <button type="submit" value="Update" id="update" class="mt-4 mb-1 button">Update</button>
+        </form>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="selectContainer container mb-5">
+        <span>Select User</span>
+        <form action="#" th:action="@{/admin/userFind}" th:object="${user}" method="post">
+            <button type="submit" value="Select" id="userSelect" class="mt-4 mb-1 button">Select User</button>
+            <div>
+                <div class="form-floating">
+                    <input type="email" th:field="*{email}" placeholder="Id" id="wineSelect" class="login form-control">
+                    <label for="wineSelect" class="labelText">Id</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="selectContainer container mb-5">
+        <span>Delete User</span>
+        <form action="#" th:action="@{/admin/userDelete}" th:object="${user}" method="post">
+            <button type="submit" value="Select" class="mt-4 mb-1 button">Delete User</button>
+            <div>
+                <div class="form-floating">
+                    <input type="email" th:field="*{email}" placeholder="Id" id="wineDelete" class="login form-control">
+                    <label for="wineSelect" class="labelText">Id</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="resultContainer container mb-5">
+        <div class="backFade" id="resultTarget"></div>
+        <div class="row d-flex align-items-center justify-content-center flex-wrap pageNumbers" id="pagination"></div>
+    </div>
+</div>
+</div>
+</div>
+
+<div th:replace="footer::footer"></div>
+<script type="text/javascript" th:src="@{/js/pagination.js}"></script>
+<script type="text/javascript" th:src="@{/js/userConsole.js}"></script>
+
+</body>
+</html>

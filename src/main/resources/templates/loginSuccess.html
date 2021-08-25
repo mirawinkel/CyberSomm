@@ -10,12 +10,10 @@
   <div class="col text-center">
     <h1 class="mb-5">Login Successful</h1>
     <h3 th:text="'Welcome back ' + ${name} + '!'"></h3>
-    <a th:href="@{/user/accountHome}">Account Home</a>
+    <a th:href="@{/user/accountHome}"><button id="return" class="mt-5 mb-1 button login">Account Home</button></a>
   </div>
 </div>
 
-
-<script type="text/javascript" src="../static/js/contact.js"></script>
 <div th:replace="footer::footer"></div>
 
 </body>

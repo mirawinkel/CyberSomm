@@ -11,7 +11,7 @@
     <div class="col d-flex flex-column align-items-center">
       <h1 class="mb-5">Sommelier</h1>
         <div class="text-center row" id="resultBox">
-          <h2 class="mb-1" id="question">What kind of food would you like to pair with?</h2>
+          <h2 class="mb-1 resultTarget" id="question">What kind of food would you like to pair with?</h2>
           <div class="d-flex align-items-center p-3 my-3 r justify-content-around">
           
             <div class="lh-1 d-flex">
@@ -31,6 +31,7 @@
     </div>
 
 <div th:replace="footer::footer"></div>
+    <script type="text/javascript" th:src="@{/js/pagination.js}"></script>
     <script type="text/javascript" th:src="@{/js/pair.js}"></script>
     <script type="text/javascript" th:src="@{/js/foodPair.js}"></script>
     <script type="text/javascript" th:src="@{/js/winePair.js}"></script>

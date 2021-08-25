@@ -1,0 +1,23 @@
+.resultContainer {
+    margin-top: 2rem;
+    width: 75rem;
+    height: auto;
+}
+
+.inputContainer {
+    height: 22rem;
+}
+
+.vendorContainer {
+    height: 35rem;
+}
+
+.wineContainer {
+    height: 55rem;
+}
+
+.selectContainer {
+    height: 13rem;
+    margin-top: 0rem;
+    margin-bottom: -2rem;
+}

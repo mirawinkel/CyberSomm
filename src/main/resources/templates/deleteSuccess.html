@@ -1,20 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<div th:replace="head::head('Logout Success')"></div>
+<div th:replace="head::head('Delete Account Success')"></div>
 
 <body>
 <nav th:replace="navbar::navbar"></nav>
 
 <div class="row">
     <div class="col text-center">
-        <h1 class="mb-5">Logout Successful</h1>
-        <a th:href="@{login}">Login</a>
+        <h1 class="mb-5">Account Deletion Successful</h1>
+        <a th:href="@{register}">Register</a>
     </div>
 </div>
 <div th:replace="footer::footer"></div>
 
 </body>
 </html>
-
-

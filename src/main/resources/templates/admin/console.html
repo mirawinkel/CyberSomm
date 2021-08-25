@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head('Admin Console')"></div>
+<!--<link rel="stylesheet" th:href="@{/css/*.css}">-->
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+<div class="row d-flex flex-column text-center justify-content-center">
+    <div class="col-8 mx-auto">
+        <h1>Admin Console</h1>
+        <div class="d-flex mx-auto justify-content-evenly">
+            <a th:href="@{/admin/userConsole}"><button class="mt-2 mb-1 mx-2 button login">User Console</button></a>
+            <a th:href="@{/admin/wineConsole}"><button class="mt-2 mb-1 mx-2 button login">Wine Console</button></a>
+            <a th:href="@{/admin/vendorConsole}"><button class="mt-2 mb-1 mx-2 button login">Vendor Console</button></a>
+        </div>
+    </div>
+</div>
+
+
+
+<div th:replace="footer::footer"></div>
+<!--        <script type="text/javascript" th:src="@{/js/*.js}"></script>-->
+</body>
+</html>

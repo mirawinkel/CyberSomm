@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+
+<div th:replace="head::head('Wine Console')"></div>
+<link rel="stylesheet" th:href="@{/css/input.css}">
+<link rel="stylesheet" th:href="@{/css/console.css}">
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row d-flex text-center justify-content-center">
+    <div class="col-8">
+        <div class="row">
+            <h1>Wine Console</h1>
+            <div th:if="${update}" th:text="'Wine Successfully Updated'"></div>
+            <div th:if="${deleted}" th:text="'Wine Successfully Deleted'"></div>
+        </div>
+
+        <div class="row">
+            <div class="wineContainer container mb-5">
+                <div class="login-box">
+                    <span>Modify Wine File</span>
+
+                    </div>
+                    <form th:action="@{/admin/wineUpdate}" th:object="${wine}" id="formAction" method="post">
+                        <div th:text="'Wine Id: ' + ${wine.id}"></div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="hidden" th:field="*{id}">
+                                <input type="text" th:field="*{name}" placeholder="Name" id="name" class="login form-control">
+                                <label for="name" class="labelText">Name</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{producer}" placeholder="Producer" id="producer" class="login form-control">
+                                <label for="producer" class="labelText">Producer</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{varietal}" placeholder="Varietal" id="varietal" class="login form-control">
+                                <label for="varietal" class="labelText">Varietal</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{vintage}" placeholder="Vintage" id="vintage" class="login form-control">
+                                <label for="vintage" class="labelText">Vintage</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{region}" placeholder="Region" id="region" class="login form-control">
+                                <label for="region" class="labelText">Region</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-floating">
+                                <input type="text" th:field="*{country}"  placeholder="State" id="country" class="login form-control">
+                                <label for="country" class="labelText">Country</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-floating">
+                                <input type="number" th:field="*{price}" placeholder="Price" id="price" class="login form-control" min="0" step=".01">
+                                <label for="price" class="labelText">Price</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-floating">
+                                <input type="number" th:field="*{cost}" placeholder="Cost" id="cost" class="login form-control" min="0" step=".01">
+                                <label for="cost" class="labelText">Cost</label>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" id="update" class="mt-4 mb-1 button">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="selectContainer container mb-5">
+                <span>Select Wine</span>
+                <form action="#" th:action="@{/admin/wineFind}" th:object="${wine}" method="post">
+                    <button type="submit" value="Select" id="userSelect" class="mt-4 mb-1 button">Select Wine</button>
+                    <div>
+                        <div class="form-floating">
+                            <input type="number" th:field="*{id}" placeholder="Id" id="wineSelect" class="login form-control">
+                            <label for="wineSelect" class="labelText">Id</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="selectContainer container mb-5">
+                <span>Delete Wine</span>
+                <form action="#" th:action="@{/admin/wineDelete}" th:object="${wine}" method="post">
+                    <button type="submit" value="Select" class="mt-4 mb-1 button">Delete Wine</button>
+                    <div>
+                        <div class="form-floating">
+                            <input type="number" th:field="*{id}" placeholder="Id" id="wineDelete" class="login form-control">
+                            <label for="wineSelect" class="labelText">Id</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="resultContainer container mb-5">
+                <div class="backFade" id="resultTarget"></div>
+                <div class="row d-flex align-items-center justify-content-center flex-wrap pageNumbers" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="footer::footer"></div>
+<script type="text/javascript" th:src="@{/js/pagination.js}"></script>
+<script type="text/javascript" th:src="@{/js/wineConsole.js}"></script>
+
+</body>
+</html>
