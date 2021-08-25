@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
 
 <div th:replace="head::head('Wine Information')"></div>
 <!--<link rel="stylesheet" th:href="@{/css/*.css}">-->
@@ -10,6 +10,7 @@
 <div class="row">
     <div class="col mx-auto text-center">
         <h1>Wine Information</h1>
+        <div th:if="${favorite}" th:text="'Wine Added to Favorites'"></div>
         <div class="">
             <h2 th:if="${wine.getName()}" th:text="${wine.getName()}"></h2>
             <div class="producerText" th:text="${wine.getProducer()}"></div>
@@ -17,9 +18,11 @@
             <div class="varietalText" th:text="${wine.getVarietal()}"></div>
             <div class="regionText" th:text="${wine.getRegion()}"></div>
             <div class="priceText"  th:text="'$ ' + ${wine.getPrice()}"></div>
-
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
+            <div sec:authorize="isAuthenticated()">
+                <a sec:authorize="isAuthenticated()" th:href="@{/addFavorite(id=${wine.getId})}"><button class="mt-2 mb-1 button login">Add to Favorites</button></a>
+            </div>
             <h4>Available at these fine vendors:</h4>
             <ul th:each="vendor : ${vendors}">
                 <li th:text="${vendor.name} + ' located in ' + ${vendor.city} + ' ' + ${vendor.state} + ', ' + ${vendor.country}"></li>

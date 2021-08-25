@@ -15,8 +15,6 @@ public class UserServiceImplTest {
     @Autowired
     private UserService userService;
 
-//    void deleteUserByEmail(String email);
-
     @Test
     void testFindUserByEmail() {
         User user = new User();
