@@ -12,6 +12,8 @@ import java.util.Set;
 @Entity
 @Table(name = "role")
 public class Role {
+    //Helper Class to ensure proper authentication while utilizing Spring Security
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id", nullable = false)

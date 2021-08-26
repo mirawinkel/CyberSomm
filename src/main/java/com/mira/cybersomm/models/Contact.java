@@ -17,6 +17,8 @@ public @Getter
 @ToString
 @RequiredArgsConstructor
 class Contact implements Serializable {
+    //Helper class to ensure records of contacts that send mail, also to ensure functioning of Java Mail sender implementation
+
     @Transient
     private final long serialVersionUID= 1L;
 

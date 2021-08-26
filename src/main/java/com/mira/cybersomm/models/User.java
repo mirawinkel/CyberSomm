@@ -22,6 +22,7 @@ public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    //utilizing email as Id because email addresses are unique and it eliminates the need for identification numbers
     @Id
     @Column(nullable = false, length = 60)
     @NotNull(message="Can't be empty")
@@ -34,7 +35,6 @@ public class User implements Serializable {
     protected String username;
 
     @Column
-//    @Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})",message = "Enter valid password")
     @NotNull(message="Can't be empty")
     @NotEmpty
     protected String password;

@@ -15,6 +15,7 @@ public class ContactController {
     private JavaMailSender mailSender;
 
     public void sendmail(Contact contact) {
+        //helper method for constructing emails to main account based on a template
         SimpleMailMessage msg = new SimpleMailMessage();
         String text = "From: " + contact.getEmail() + "\n\n" + contact.getName() + "\n" + contact.getMessage();
         msg.setFrom(contact.getEmail());
@@ -24,13 +25,13 @@ public class ContactController {
         mailSender.send(msg);
     }
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    @GetMapping("/contact")
     public  String contactForm(Model model) {
         model.addAttribute("contact", new Contact());
         return "contact";
     }
 
-    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    @PostMapping("/contact")
     public String contactSubmit(@ModelAttribute Contact contact, Model model) {
         model.addAttribute("contact", contact);
         sendmail(contact);

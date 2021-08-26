@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
 public class VendorController {
-
+//RestController execution of vendor services
     public VendorService vendorService;
 
     @Autowired

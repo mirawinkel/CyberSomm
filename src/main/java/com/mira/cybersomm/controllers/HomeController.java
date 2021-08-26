@@ -4,7 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexController {
+public class HomeController {
+
+    @GetMapping("/about")
+    String about() {
+        return "about";
+    }
+
     @GetMapping
     String getIndex() {
         return "index";
@@ -15,4 +21,8 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/store")
+    String store()  {
+        return "store";
+    }
 }

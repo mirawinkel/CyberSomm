@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CustomUserDetails implements UserDetails {
-
+//Helper class for Spring Security implementation
     private User user;
 
     public CustomUserDetails(User user) {

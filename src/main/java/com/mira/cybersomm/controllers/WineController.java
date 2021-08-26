@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
 public class WineController {
-
+//Rest controller execution of wine services
     public WineService wineService;
 
     @Autowired
     public WineController(WineService wineService) {
         this.wineService = wineService;
     }
-
 
     @GetMapping(value="/varietal")
     public Iterable<Wine> findByVarietal(@RequestParam String varietal) {

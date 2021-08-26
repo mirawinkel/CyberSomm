@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
 public class UserController {
-
+//Rest controller execution of user services
     UserService userService;
 
     @Autowired

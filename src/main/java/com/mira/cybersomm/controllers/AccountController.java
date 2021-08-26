@@ -41,9 +41,11 @@ public class AccountController {
 //
     @GetMapping("/login")
     public String login(@RequestParam(value = "error", defaultValue = "false") boolean loginError, @RequestParam(value = "noUser", defaultValue = "false") boolean noUser ,Model model) {
+        //handler for html expression of spring security login fail
         if(loginError) {
             model.addAttribute("loginError", "Email or Password invalid");
         }
+        //handler for html expression of no user login fail
         if(noUser) {
             model.addAttribute("noUser", "Please Login to access User Pages");
         }
@@ -53,7 +55,8 @@ public class AccountController {
     @GetMapping("/loginSuccess")
     public String loginSuccess(Model model, Principal principal)
     {
-        String name = principal.getName();
+        //return login page using the name from the principal object to find a user record and extracting the Username
+        String name = userService.findUserByEmail(principal.getName()).getUsername();
         model.addAttribute("name", name);
         return "loginSuccess";
     }
@@ -86,6 +89,7 @@ public class AccountController {
             model.addAttribute("exists", "Account with that email already exists");
             return "register";
         }
+        //Automatically assign the USER role to newly registered users
         Role role = roleService.findRoleById(2);
         Set<Role> roles = new HashSet<Role>();
         roles.add(role);

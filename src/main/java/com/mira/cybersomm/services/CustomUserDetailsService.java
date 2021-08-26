@@ -17,7 +17,7 @@ import java.util.Collection;
 @Service
 @Transactional
 public class CustomUserDetailsService implements UserDetailsService {
-
+//helper class for Spring Security Implementation
     @Autowired
     private UserRepository userRepository;
 

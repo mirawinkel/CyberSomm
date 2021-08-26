@@ -48,11 +48,14 @@ public class SommelierController {
 
     @GetMapping("/addFavorite")
     String addFavorite(@RequestParam long id, Model model) {
+        //utilize the authenticated user record to access their user file in the database
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByEmail(email);
         Wine wine = wineService.findWineById(id);
+        //Save wine to the user favorites list
         user.getFavorites().add(wine);
         userService.save(user);
+        //populate vendor field to ensure page display remains consistent
         Iterable<Vendor> vendors = vendorService.findVendorsByWineListIsContaining(wine);
         model.addAttribute("wine", wine);
         model.addAttribute("vendors", vendors);
