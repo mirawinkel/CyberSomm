@@ -52,13 +52,13 @@ public class AccountController {
         return "login";
     }
 
-    @GetMapping("/loginSuccess")
+    @GetMapping("/login_success")
     public String loginSuccess(Model model, Principal principal)
     {
         //return login page using the name from the principal object to find a user record and extracting the Username
         String name = userService.findUserByEmail(principal.getName()).getUsername();
         model.addAttribute("name", name);
-        return "loginSuccess";
+        return "login_success";
     }
 
     @GetMapping("/loginFail")
@@ -66,10 +66,10 @@ public class AccountController {
         return "loginFail";
     }
 
-    @GetMapping("/logoutSuccess")
+    @GetMapping("/logout_success")
     public String logoutSuccess()
     {
-        return "logoutSuccess";
+        return "logout_success";
     }
 
     @GetMapping("/register")
@@ -96,7 +96,7 @@ public class AccountController {
         user.setRoles(roles);
         userService.encodePassword(user);
         userService.save(user);
-        return "registerSuccess";
+        return "register_success";
     }
 
     @GetMapping("/user/accountHome")
@@ -104,7 +104,7 @@ public class AccountController {
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
         User currentUser = userService.findUserByEmail(userDetails.getUsername());
         model.addAttribute("currentUser", currentUser);
-        return "/user/accountHome";
+        return "/user/account_home";
     }
 
     @GetMapping("/sure")
@@ -119,6 +119,6 @@ public class AccountController {
         User currentUser = userService.findUserByEmail(userDetails.getUsername());
         model.addAttribute("currentUser", currentUser);
         userService.deleteUserByEmail(currentUser.getEmail());
-        return "deleteSuccess";
+        return "delete_success";
     }
 }

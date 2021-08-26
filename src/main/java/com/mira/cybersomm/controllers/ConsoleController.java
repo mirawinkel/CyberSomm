@@ -9,6 +9,7 @@ import com.mira.cybersomm.services.UserService;
 import com.mira.cybersomm.services.VendorService;
 import com.mira.cybersomm.services.WineService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,23 +45,23 @@ public class ConsoleController {
         return "/admin/console";
     }
 
-    @GetMapping("/admin/userConsole")
+    @GetMapping("/admin/user_console")
     public String userConsole() {
-        return "/admin/userConsole";
+        return "/admin/user_console";
     }
 
     @GetMapping("/admin/wineConsole")
     public String wineConsole(Model model) {
         Wine wine = new Wine();
         model.addAttribute("wine", wine);
-        return "/admin/wineConsole";
+        return "/admin/wine_console";
     }
 
     @GetMapping("/admin/vendorConsole")
     public String vendorConsole(Model model) {
         Vendor vendor = new Vendor();
         model.addAttribute("vendor", vendor);
-        return "/admin/vendorConsole";
+        return "/admin/vendor_console";
     }
 
     @PostMapping("/admin/userUpdate")
@@ -74,7 +75,7 @@ public class ConsoleController {
         user.setRoles(roles);
         userService.save(user);
         model.addAttribute("update", true);
-        return "/admin/userConsole";
+        return "/admin/user_console";
     }
 
     @PostMapping("/admin/userFind")
@@ -85,15 +86,15 @@ public class ConsoleController {
             record = new User();
         }
         model.addAttribute("user", record);
-        return "/admin/userConsole";
+        return "/admin/user_console";
     }
 
     @PostMapping("/admin/vendorUpdate")
     public String vendorUpdate(@ModelAttribute("vendor") Vendor vendor, Model model) {
         //Update vendor records
-            model.addAttribute("update", true);
-            vendorService.save(vendor);
-        return "/admin/vendorConsole";
+        model.addAttribute("update", true);
+        vendorService.save(vendor);
+        return "/admin/vendor_console";
     }
 
     @PostMapping("/admin/vendorFind")
@@ -105,7 +106,7 @@ public class ConsoleController {
             record.setId(0);
         }
         model.addAttribute("vendor", record);
-        return "/admin/vendorConsole";
+        return "/admin/vendor_console";
     }
 
     @PostMapping("/admin/wineUpdate")
@@ -113,7 +114,7 @@ public class ConsoleController {
         //update existing wine records
         model.addAttribute("update", true);
         wineService.save(wine);
-        return "/admin/wineConsole";
+        return "/admin/wine_console";
     }
 
     @PostMapping("/admin/wineFind")
@@ -125,7 +126,7 @@ public class ConsoleController {
             record.setId(0);
         }
         model.addAttribute("wine", record);
-        return "/admin/wineConsole";
+        return "/admin/wine_console";
     }
 
     @PostMapping("/admin/wineDelete")
@@ -133,7 +134,7 @@ public class ConsoleController {
         //delete wine records utilizing id numbers
         wineService.deleteWineById(wine.getId());
         model.addAttribute("deleted", true);
-        return "/admin/wineConsole";
+        return "/admin/wine_console";
     }
 
     @PostMapping("/admin/userDelete")
@@ -141,7 +142,7 @@ public class ConsoleController {
         //delete user files utilizing email address
         userService.deleteUserByEmail(user.getEmail());
         model.addAttribute("deleted", true);
-        return "/admin/userConsole";
+        return "/admin/user_console";
     }
 
     @PostMapping("/admin/vendorDelete")
@@ -149,6 +150,19 @@ public class ConsoleController {
         //delete vendor records utilizing id numbers
         vendorService.deleteById(vendor.getId());
         model.addAttribute("deleted", true);
-        return "/admin/vendorConsole";
+        return "/admin/vendor_console";
+    }
+
+    @GetMapping("/user/favorites")
+    public String favorites(Model model) {
+        //utilize the authenticated user record to access their user file in the database
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findUserByEmail(email);
+        //Add their favorites to the view model
+        Set<Wine> userFavorites = user.getFavorites();
+        Wine wine = new Wine();
+        model.addAttribute("favorites", userFavorites);
+        model.addAttribute("wine", wine);
+        return "/user/favorites";
     }
 }

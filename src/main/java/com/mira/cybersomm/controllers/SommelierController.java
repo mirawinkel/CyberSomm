@@ -36,14 +36,14 @@ public class SommelierController {
         return "sommelier";
     }
 
-    @GetMapping("/wineInformation")
+    @GetMapping("/wine_information")
     String wineInfo(@RequestParam long wineId, Model model) {
         model.addAttribute("wineId", wineId);
         Wine wine = wineService.findWineById(wineId);
         Iterable<Vendor> vendors = vendorService.findVendorsByWineListIsContaining(wine);
         model.addAttribute("wine", wine);
         model.addAttribute("vendors", vendors);
-        return "wineInformation";
+        return "wine_information";
     }
 
     @GetMapping("/addFavorite")
@@ -60,6 +60,6 @@ public class SommelierController {
         model.addAttribute("wine", wine);
         model.addAttribute("vendors", vendors);
         model.addAttribute("favorite", true);
-        return "wineInformation";
+        return "wine_information";
     }
 }

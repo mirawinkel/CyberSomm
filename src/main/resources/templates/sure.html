@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col text-center">
     <h2 class="mb-5">Are you sure you want to delete your account?</h2>
-    <a th:href="@{/user/accountHome}"><button id="return" class="mt-5 mb-1 button login">No! Bring me Back</button></a>
+    <a th:href="@{/user/account_home}"><button id="return" class="mt-5 mb-1 button login">No! Bring me Back</button></a>
     <form th:action="@{/delete}" method="post">
       <button type="submit" value="Delete" id="delete" class="mt-5 mb-1 button login">Yes, Delete my Account</button>
     </form>

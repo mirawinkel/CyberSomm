@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="head::head('Your Favorites')"></div>
+<link rel="stylesheet" th:href="@{/css/input.css}">
+<link rel="stylesheet" th:href="@{/css/console.css}">
+
+<body>
+
+<nav th:replace="navbar::navbar"></nav>
+
+<div class="row d-flex text-center justify-content-center">
+    <div class="col-6">
+        <h1>Your Favorites</h1>
+        <div th:if="${deleted}" th:text="'Wine Removed from List'"></div>
+    </div>
+</div>
+<div class="inputContainer container mb-5">
+    <div class="login-box">
+        <span>Modify User File</span>
+        <form action="#" th:action="@{/user/favoriteRemove}" th:object="${wine}" method="post">
+            
+            <div>
+                <div class="form-floating">
+                    <input type="text" th:field="*{id}" placeholder="Wine Id" id="wineId" class="login form-control" required>
+                    <label for="wineId" class="labelText">Wine Id</label>
+                </div>
+            </div>
+
+            <button type="submit" value="Update" id="update" class="mt-4 mb-1 button">Remove</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="resultContainer container mb-5">
+        <div class="backFade" id="resultTarget"></div>
+        <div class="row d-flex align-items-center justify-content-center flex-wrap pageNumbers" id="pagination">
+            <h4>Your Favorites:</h4>
+            <ul th:each="wine : ${favorites}">
+                <li>
+                    <a th:href="@{/wineInformation(wineId=${wine.getId})}" th:text="'ID: ' + ${wine.id} + '  ' + ${wine.producer} + ' ' + ${wine.name} + ' ' + ${wine.vintage} + ' ' + ${wine.region} + ' $' + ${wine.price}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div th:replace="footer::footer"></div>
+<script type="text/javascript" th:src="@{/js/pagination.js}"></script>
+<script type="text/javascript" th:src="@{/js/userConsole.js}"></script>
+
+</body>
+</html>

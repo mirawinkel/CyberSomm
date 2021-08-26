@@ -49,10 +49,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         .loginPage("/login")
                         .usernameParameter("email")
                         .permitAll()
-                        .defaultSuccessUrl("/loginSuccess")
+                        .defaultSuccessUrl("/login_success")
                         .failureUrl("/login?error=true"))
                 .logout()
-                .logoutSuccessUrl("/logoutSuccess");
+                .logoutSuccessUrl("/logout_success");
         http.sessionManagement()
                 .invalidSessionUrl("/login?noUser=true");
     }
