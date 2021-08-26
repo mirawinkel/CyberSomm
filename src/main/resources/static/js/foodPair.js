@@ -1,3 +1,140 @@
+function apps() {
+    question.innerHTML = 'What style of appetizer are you enjoying?';
+    pair.drawButton('Fried', fried, 'Chilled', chilled, 'Warm', warm);
+}
+
+function fried() {
+    question.innerHTML = 'What style of fried food are you enjoying?';
+    pair.drawButton('Dumpling / Eggroll', dumpling, 'Savory / Meat', meatFried, 'Vegetable', vegFried);
+}
+
+function vegFried() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Sweet Wine', sweetWhite, 'Lighter White', lightWhite, 'Bubbles', sparkling);
+}
+
+function dumpling() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Sweet Wine', sweetWhite, 'Lighter White', lightWhite, 'Bubbles', sparkling);
+}
+
+function meatFried() {
+    question.innerHTML = 'What fried appetizers are you enjoying?';
+    pair.drawButton('Cheese / Bread', friedCheese, 'Red Meat', redFried, 'White Meat / Seafood', whiteFried);
+}
+
+function friedCheese() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Rich White', richWhite, 'Lighter White', lightWhite, 'Bubbles', sparkling);
+}
+
+function redFried() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light Red', lightRed, 'Rich White', richWhite, 'Bubbles', sparkling);
+}
+
+function whiteFried() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Sweet Wine', sweetWhite, 'Lighter White', lightWhite, 'Bubbles', sparkling);
+}
+
+function chilled() {
+    question.innerHTML = 'What chilled appetizers are you enjoying?';
+    pair.drawButton('Meat Driven', chilledMeat, 'Veggie Driven', chilledVeggie, 'Seafood / Sushi', sushi);
+}
+
+function chilledMeat() {
+    question.innerHTML = 'What style of chilled meat appetizers are you enjoying?';
+    pair.drawButton('Tartare', tartare, 'Charcuterie', charcuterie, 'Antipasto', antipasto);
+}
+
+function tartare() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light Red', lightRed, 'Light White', lightWhite, 'Bubbles', sparkling);
+}
+
+function charcuterie() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light Red', lightRed, 'Rich White', richWhite, 'Light White', lightWhite);
+}
+
+function antipasto() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light Red', lightRed, 'Light White', lightWhite, 'Medium Red', mediumRed);
+}
+
+function chilledVeggie() {
+    question.innerHTML = 'What style of chilled veggie appetizers are you enjoying?';
+    pair.drawButton('Mushrooms', mushroom, 'Raw', raw, 'Previously Cooked', prevCooked);
+}
+
+function mushroom() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light Red', lightRed, 'Medium Red', mediumRed, 'Rich White', richWhite);
+}
+
+function raw() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Sweet White', sweetWhite, 'Light White', lightWhite, 'Sparkling', sparkling);
+}
+
+function prevCooked() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Rich White', richWhite, 'Light White', lightWhite, 'Sparkling', sparkling);
+}
+
+function sushi() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Sweet White', sweetWhite, 'Light White', lightWhite, 'Sparkling', sparkling);
+}
+
+function warm() {
+    question.innerHTML = 'What style of warm appetizers are you enjoying?';
+    pair.drawButton('Meat / Seafood', warmMeat, 'Veggie', warmVeggie, 'Bread / Dairy', warmDairy);
+}
+
+function warmMeat() {
+    question.innerHTML = 'What style of meat appetizers are you enjoying?';
+    pair.drawButton('Savory', warmSavory, 'Spicy', warmSpicy, 'Seafood', warmSea);
+}
+
+function warmSavory() {
+    question.innerHTML = 'What style of savory appetizers are you enjoying?';
+    pair.drawButton('Red Meat', redApp, 'White Meat', whiteSavory, 'Fioe Gras', sauternes);
+}
+
+function redApp() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light Red', lightRed, 'Medium Red', mediumRed, 'Fruity Red', bigFruitRed);
+}
+
+function whiteSavory() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light White', lightWhite, 'Rich White', richWhite, 'Sparkling', sparkling);
+}
+
+function warmSpicy() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Sweet White', sweetWhite, 'Light White', lightWhite, 'Sparkling', sparkling);
+}
+
+function warmSea() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light White', lightWhite, 'Rich White', richWhite, 'Sparkling', sparkling);
+}
+
+function warmVeggie() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light White', lightWhite, 'Sweet White', sweetWhite, 'Sparkling', sparkling);
+}
+
+function warmDairy() {
+    question.innerHTML = 'What kind of wine would you like...';
+    pair.drawButton('Light White', lightWhite, 'Rich White', richWhite, 'Sparkling', sparkling);
+}
+
+//*********** Mains *************
+
 function main() {
     question.innerHTML = 'What style of main dish are you enjoying?';
     pair.drawButton('Meats', meat, 'Veggies', veggie, 'Pasta', pasta);
@@ -5,10 +142,10 @@ function main() {
 
 function meat() {
     question.innerHTML = 'What type of protein are you enjoying?';
-    pair.drawButton('Surf', surf, 'Terf', terf, 'Poultry', poultry);
+    pair.drawButton('Surf', surf, 'Turf', turf, 'Poultry', poultry);
 }
 
-// *******  Seafood ********
+// *******  Seafood Main Course ********
 
 function surf() {
     question.innerHTML = 'What type of seafood are you enjoying?';
@@ -100,62 +237,124 @@ function firmButter() {
     pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
 function firmGrill() {
-    pair.results.push("Oakey Chardonnay to compliment the richness of the fish");
-    pair.results.push("Chenin Blanc to compliment the richness with rich fruit");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
+
 }
 function firmSpicy() {
-    pair.results.push("Oakey Chardonnay to compliment the richness of the fish");
-    pair.results.push("Chenin Blanc to compliment the richness with rich fruit");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Riesling to compliment the spice in the dish");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness to play with spice");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Sweet White', sweetWhite);
 }
 function fattyButter() {
-    pair.results.push("Oakey Chardonnay to compliment the butter and richness");
-    pair.results.push("Chenin Blanc to compliment the richness with rich fruit");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Sauvignon Blanc to provide some bright acid and grassy/citrus notes to pair");
-    pair.results.push("Orange wine to provide acid to cut the richness and rich tertiary funk to compliment");
-    pair.results.push("Sparkling Wine to lift and cleanse the pallet in between bites");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
+
 function fattyGrill() {
-    pair.results.push("Oakey Chardonnay to compliment the richness of the fish");
-    pair.results.push("Chenin Blanc to compliment the richness with rich fruit");
-    pair.results.push("Not Oakey Chardonnay to provide some bright acid and minerality to pair");
-    pair.results.push("Orange wine to provide acid to cut the richness and rich tertiary funk to compliment");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Bubbles', sparkling);
 }
+
 function fattySpicy() {
-    pair.results.push("Oakey Chardonnay to compliment the richness of the fish");
-    pair.results.push("Chenin Blanc to compliment the richness with rich fruit");
-    pair.results.push("Riesling to compliment the spice in the dish");
-    pair.results.push("Gewurtztraminer to provide floral and stone fruit notes, and a little sweetness to play with spice");
-    pair.results.push("Orange wine to provide acid to cut the richness and rich tertiary funk to compliment");
-    ShowResults();
+    question.innerHTML = 'Would you like...';
+    pair.drawButton('Richer Wine', richWhite, 'Lighter Wine', lightWhite, 'Sweet White', sweetWhite);
 }
 
 
-// ******** Land Meat *********
+// ******** Land Meat Main Dish *********
 
-function terf() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+function turf() {
+    question.innerHTML = 'What kind of meat?';
+    pair.drawButton('Red Meat', redMeat, 'White Meat', whiteMeat, 'Wild Game', wildGame);
 }
+
+function redMeat() {
+    question.innerHTML = 'Is your dish...?';
+    pair.drawButton('Spicy', redSpicy, 'Simply Grilled', redSimple, 'Savory', redSavory);
+}
+
+function redSpicy() {
+    question.innerHTML = 'Would you like...?';
+    pair.drawButton('Medium Bodied Red', mediumRed, 'Big Fruity Red', bigFruitRed, 'Lighter Red', lightRed);
+}
+
+function redSimple() {
+    question.innerHTML = 'Would you like...?';
+    pair.drawButton('Medium Bodied Red', mediumRed, 'Big Fruity Red', bigFruitRed, 'Big Dry Red', bigDryRed);
+}
+
+function redSavory() {
+    question.innerHTML = 'Would you like...?';
+    pair.drawButton('Medium Bodied Red', mediumRed, 'Big Fruity Red', bigFruitRed, 'Big Dry Red', bigDryRed);
+}
+
+
+function whiteMeat() {
+    question.innerHTML = 'Is your dish...?';
+    pair.drawButton('Spicy', sweetWhite, 'Simply Grilled', lightWhite, 'Savory', richWhite);
+}
+
+function wildGame() {
+    question.innerHTML = 'Is your dish...?';
+    pair.drawButton('Spicy', lightRed, 'Simply Grilled', bigFruitRed, 'Savory', bigDryRed);
+}
+//********** Poultry *************
 function poultry() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of poultry?';
+    pair.drawButton('Chicken', chicken, 'Turkey/Game', turkey, 'Duck', duck);
 }
 
-// ******* Veggie *******
+function turkey() {
+    question.innerHTML = 'Is the dish...';
+    pair.drawButton('Roasted', roastTurkey, 'Spicy', spicyTurkey, 'Savory', savoryTurkey);
+}
+
+function roastTurkey() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light Red', lightRed, 'Light White', lightWhite, 'Rich White', richWhite);
+}
+
+function spicyTurkey() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sweet', sweetWhite, 'Light White', lightWhite, 'Rich White', richWhite);
+}
+
+function savoryTurkey() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light Red', lightRed, 'Light White', lightWhite, 'Rich White', richWhite);
+}
+
+function chicken() {
+    question.innerHTML = 'Is the dish...';
+    pair.drawButton('Roasted', roastChx, 'Spicy', spicyTurkey, 'Savory', savoryTurkey);
+}
+
+function roastChx() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sweet', sweetWhite, 'Light White', lightWhite, 'Rich White', richWhite);
+}
+
+function duck() {
+    question.innerHTML = 'Is the dish...';
+    pair.drawButton('Roasted', roastDuck, 'Spicy', spicyDuck, 'Savory', savoryDuck);
+}
+
+function roastDuck() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light Red', lightRed, 'Medium Red', mediumRed, 'Rich White', richWhite);
+}
+
+function spicyDuck() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light Red', lightRed, 'Medium Red', mediumRed, 'Sweet White', sweetWhite);
+}
+
+function savoryDuck() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Fruity Red', bigFruitRed, 'Medium Red', mediumRed, 'Rich White', richWhite);
+}
+
+// ******* Veggie Main Dish *******
 function veggie() {
     question.innerHTML = 'What style of vegetables are you enjoying?';
     pair.drawButton('Root Veggies', root, 'Green Veggies', green, 'Squash', squash);
@@ -165,106 +364,128 @@ function root() {
     pair.drawButton('Sweet (Yams/Carrots)', sweetRoot, 'Earthy (beets)', earthyRoot, 'Potato / Celeriac', starchRoot);
 }
 function green() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of greens?';
+    pair.drawButton('Salad Greens', salad, 'Braised Greens', braisedGreen, 'Roasted/Grilled Green', grillGreen);
 }
+
+function salad() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Light White', lightWhite, 'Sweet White', sweetWhite);
+}
+
+function braisedGreen() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Rich White', richWhite, 'Light White', lightWhite, 'Light Red', lightRed);
+}
+
+function grillGreen() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Rich White', richWhite, 'Light White', lightWhite, 'Sweet White', sweetWhite);
+}
+
 function squash() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What style of squash dish?';
+    pair.drawButton('Sweeter', sweetSquash, 'Spicy', spicySquash, 'Savory', savorySquash);
 }
+
+function sweetSquash() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light White', lightWhite, 'Light Red', lightRed, 'Rich White', richWhite);
+}
+
+function spicySquash() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light White', lightWhite, 'Sweet White', sweetWhite, 'Rich White', richWhite);
+}
+
+function savorySquash() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light White', lightWhite, 'Light Red', lightRed, 'Rich White', richWhite);
+}
+
 function sweetRoot() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light White', lightWhite, 'Light Red', lightRed, 'Rich White', richWhite);
 }
 function earthyRoot() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light Red', lightRed, 'Medium Red', mediumRed, 'Rich White', richWhite);
 }
 function starchRoot() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light White', lightWhite, 'Sweet White', sweetWhite, 'Rich White', richWhite);
 }
+
+//************ Pasta *************
 function pasta() {
     question.innerHTML = 'What style of pasta are you enjoying?';
     pair.drawButton('Red Sauce', redPasta, 'White Sauce', whitePasta, 'Something Else', otherPasta);
 }
 function redPasta() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Light Red', lightRed, 'Sweet White', sweetWhite, 'Medium Red', mediumRed);
 }
+
 function whitePasta() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Light White', lightWhite, 'Rich White', richWhite);
 }
+
 function otherPasta() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What is your pasta like?';
+    pair.drawButton('Garlic Based', garlicPasta, 'Oil Based', oilPasta, 'Herb Driven', herbPasta);
 }
+
+function garlicPasta() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Light White', lightWhite, 'Rich White', richWhite);
+}
+
+function oilPasta() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Light White', lightWhite, 'Light Red', lightRed);
+}
+
+function herbPasta() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Light White', lightWhite, 'Rich White', richWhite);
+}
+
+//************ Cheese *************
+
 function cheese() {
     question.innerHTML = 'What style of cheese are you enjoying?';
     pair.drawButton('Creamy', creamyCheese, 'Hard', hardCheese, 'Blue', blueCheese);
 }
+
 function creamyCheese() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Dessert Wine', sweetDessert, 'Light White', lightWhite);
 }
+
 function hardCheese() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Sparkling', sparkling, 'Dessert Wine', sweetDessert, 'Light Red', lightRed);
 }
 function blueCheese() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Red Dessert Wine', redDessert, 'Medium Red', mediumRed, 'Sparkling', sparkling);
 }
-function apps() {
-    question.innerHTML = 'What style of appetizer are you enjoying?';
-    pair.drawButton('Fried', fried, 'Chilled', chilled, 'Warm', warm);
-}
-function fried() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
-function chilled() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
-function warm() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
-}
+
+//********** Dessert ************
 function dessert() {
-    pair.results.push("Results still a work in progress");
-    pair.results.push("please check back soon for updates!");
-    pair.results.push("cheers from the CyberSomm team");
-    ShowResults();
+    question.innerHTML = 'What kind of dessert?';
+    pair.drawButton('Chocolate', chocolate, 'Fruit or Pastry', fruit, 'Cheese', cheese);
+}
+
+function chocolate() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Dessert Wine', sweetDessert, 'Fruity Red', bigFruitRed, 'Dry Red', bigDryRed);
+}
+
+function fruit() {
+    question.innerHTML = 'What kind of wine would you like?';
+    pair.drawButton('Dessert Wine', sweetDessert, 'Sweet White', sweetWhite, 'Light White', lightWhite);
 }
 
 

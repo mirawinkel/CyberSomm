@@ -37,3 +37,19 @@ function lightRed() {
     let inputs = ['Pinot Noir', 'Gamay', 'Malbec', 'Petite Syrah', 'Mourvede', 'Nebbiolo'];
     FindWines('varietal', inputs);
 }
+
+function sweetDessert() {
+    let inputs = ['Lambrusco', 'Port', 'Sauternes', 'Sherry', 'Tokaji', 'Zweigelt'];
+    FindWines('varietal', inputs);
+}
+
+function redDessert() {
+    let inputs = ['Port', 'Sherry'];
+    FindWines('varietal', inputs);
+}
+
+function sauternes() {
+    let inputs = ['Sauternes'];
+    FindWines('varietal', inputs);
+}
+
