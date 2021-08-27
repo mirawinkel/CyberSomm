@@ -62,7 +62,7 @@ function DisplayWineList (items, page) {
         let div = document.createElement("div");
         let link = document.createElement("a");
         link.text = wine.producer + " " + wine.name + " " + wine.vintage + " " + wine.region + "  $" + wine.price;
-        link.href = "/wineInformation?wineId=" + wine.id;
+        link.href = "/wine_information?wineId=" + wine.id;
         link.target = "_blank";
         link.classList = "resultLink";
         question.appendChild(div);

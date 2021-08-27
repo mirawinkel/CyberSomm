@@ -29,29 +29,6 @@ function Reset () {
     pair.reset();
 }
 
-// function PaginationButton(page, items) {
-//     let button = document.createElement('button');
-//     button.innerText = page;
-//     if (currentPage === page) button.classList.add('active');
-//     button.addEventListener('click', function() {
-//         currentPage = page;
-//         DisplayList(items, currentPage);
-//         let currentBtn = document.querySelector('.pageNumbers button.active');
-//         currentBtn.classList.remove('active');
-//         button.classList.add('active');
-//     })
-//     return button;
-// }
-
-// function SetupPagination (items) {
-//     pagination.innerHTML = "";
-//     let pageCount = Math.ceil(items.length / rows);
-//     for (let i = 1; i < pageCount + 1; i++) {
-//         let btn = PaginationButton(i, items);
-//         pagination.appendChild(btn);
-//     }
-// }
-
 function ShowResults() {
 
     button1.hidden = true;

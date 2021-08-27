@@ -10,11 +10,13 @@
 <div class="row">
     <div class="col mx-auto text-center d-flex flex-column">
         <h1 th:text="'Account Home for ' + ${currentUser.username}"> </h1>
+        <a th:href="@{/user/favorites}"><button class="mt-2 mb-1 button">Your Favorites</button></a>
+
         <form th:action="@{/logout}" method="post">
             <button type="submit" value="Logout" id="logout" class="mt-2 mb-1 button login">Logout</button>
         </form>
+
         <a th:href="@{/sure}"><button class="mt-2 mb-1 button">Delete Account</button></a>
-        <a th:href="@{/user/favorites}"><button class="mt-2 mb-1 button">Your Favorites</button></a>
         <div sec:authorize="isAuthenticated()">
             <a sec:authorize="${hasRole('ADMIN')}" th:href="@{/admin/console}">Admin Console</a>
         </div>

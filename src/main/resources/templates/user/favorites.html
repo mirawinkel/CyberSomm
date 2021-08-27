@@ -12,12 +12,13 @@
 <div class="row d-flex text-center justify-content-center">
     <div class="col-6">
         <h1>Your Favorites</h1>
-        <div th:if="${deleted}" th:text="'Wine Removed from List'"></div>
+        <div class="mt-2" th:if="${deleted}" th:text="'Wine Removed from List'"></div>
+        <div class="mt-2" th:if="${noExist}" th:text="'Wine Id not found on your Favorites list'"></div>
     </div>
 </div>
-<div class="inputContainer container mb-5">
+<div class="selectContainer container mt-3 mb-5">
     <div class="login-box">
-        <span>Modify User File</span>
+        <span>Remove From Favorites</span>
         <form action="#" th:action="@{/user/favoriteRemove}" th:object="${wine}" method="post">
             
             <div>
@@ -36,21 +37,18 @@
     <div class="resultContainer container mb-5">
         <div class="backFade" id="resultTarget"></div>
         <div class="row d-flex align-items-center justify-content-center flex-wrap pageNumbers" id="pagination">
-            <h4>Your Favorites:</h4>
+            <h4 class="mt-2">Your Favorites:</h4>
             <ul th:each="wine : ${favorites}">
                 <li>
-                    <a th:href="@{/wineInformation(wineId=${wine.getId})}" th:text="'ID: ' + ${wine.id} + '  ' + ${wine.producer} + ' ' + ${wine.name} + ' ' + ${wine.vintage} + ' ' + ${wine.region} + ' $' + ${wine.price}"></a>
+                    <a class="resultLink" th:href="@{/wine_information(wineId=${wine.getId})}" th:text="'ID: ' + ${wine.id} + '  ' + ${wine.producer} + ' ' + ${wine.name} + ' ' + ${wine.vintage} + ' ' + ${wine.region} + ' $' + ${wine.price}"></a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-</div>
-</div>
 
 <div th:replace="footer::footer"></div>
 <script type="text/javascript" th:src="@{/js/pagination.js}"></script>
-<script type="text/javascript" th:src="@{/js/userConsole.js}"></script>
 
 </body>
 </html>

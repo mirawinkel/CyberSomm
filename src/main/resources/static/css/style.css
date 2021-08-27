@@ -12,6 +12,10 @@ Example of import from  web CDN
     font-style: oblique 0deg 25deg;
 }
 
+* {
+    list-style-type: none;
+}
+
 body {
     background-image: url("../images/wineBackground.jpg");
     background-size: cover;
@@ -36,7 +40,11 @@ body:after {
 }
 
 .dropdown-menu {
-    width: 7rem;
+    width: 9rem;
+}
+
+#navDrop {
+    width: 12rem;
 }
 
 .navLogo {
@@ -139,6 +147,21 @@ h2 {
     margin-top: 1.2rem;
     text-decoration: none;
 }
+
+/**************** Wine Information *****************/
+
+.infoText {
+    font-size: 1.65rem;
+
+}
+
+.vendorText {
+    font-size: 1.3rem;
+}
+
+
+
+/**************** Pagination *****************/
 
 .pageNumbers button {
     height: 1.3rem;

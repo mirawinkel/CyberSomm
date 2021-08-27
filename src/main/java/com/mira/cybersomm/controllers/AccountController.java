@@ -56,8 +56,12 @@ public class AccountController {
     public String loginSuccess(Model model, Principal principal)
     {
         //return login page using the name from the principal object to find a user record and extracting the Username
-        String name = userService.findUserByEmail(principal.getName()).getUsername();
-        model.addAttribute("name", name);
+        try {
+            String name = userService.findUserByEmail(principal.getName()).getUsername();
+            model.addAttribute("name", name);
+        } catch (Exception e) {
+            model.addAttribute("name", "Unregistered Admin");
+        }
         return "login_success";
     }
 
@@ -99,11 +103,18 @@ public class AccountController {
         return "register_success";
     }
 
-    @GetMapping("/user/accountHome")
+    @GetMapping("/user/account_home")
     public String accountHome(Model model, Authentication authentication) {
-        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        User currentUser = userService.findUserByEmail(userDetails.getUsername());
-        model.addAttribute("currentUser", currentUser);
+        try {
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            User currentUser = userService.findUserByEmail(userDetails.getUsername());
+            model.addAttribute("currentUser", currentUser);
+        } catch(Exception e) {
+            User unregistered = new User();
+            unregistered.setEmail("admin@cybersomm.com");
+            unregistered.setUsername("ADMIN");
+            model.addAttribute("currentUser", unregistered);
+        }
         return "/user/account_home";
     }
 

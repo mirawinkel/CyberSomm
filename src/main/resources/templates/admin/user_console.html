@@ -58,8 +58,8 @@
             <button type="submit" value="Select" class="mt-4 mb-1 button">Delete User</button>
             <div>
                 <div class="form-floating">
-                    <input type="email" th:field="*{email}" placeholder="Id" id="wineDelete" class="login form-control">
-                    <label for="wineSelect" class="labelText">Id</label>
+                    <input type="email" th:field="*{email}" placeholder="Id" name="wineDelete" id="wineDelete" class="login form-control">
+                    <label for="wineDelete" class="labelText">Id</label>
                 </div>
             </div>
         </form>
@@ -71,8 +71,7 @@
         <div class="row d-flex align-items-center justify-content-center flex-wrap pageNumbers" id="pagination"></div>
     </div>
 </div>
-</div>
-</div>
+
 
 <div th:replace="footer::footer"></div>
 <script type="text/javascript" th:src="@{/js/pagination.js}"></script>

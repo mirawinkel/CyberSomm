@@ -146,7 +146,7 @@ public class ConsoleController {
     }
 
     @PostMapping("/admin/vendorDelete")
-    public String wineDelete(@ModelAttribute("vendor") Vendor vendor, Model model) {
+    public String vendorDelete(@ModelAttribute("vendor") Vendor vendor, Model model) {
         //delete vendor records utilizing id numbers
         vendorService.deleteById(vendor.getId());
         model.addAttribute("deleted", true);
@@ -156,13 +156,41 @@ public class ConsoleController {
     @GetMapping("/user/favorites")
     public String favorites(Model model) {
         //utilize the authenticated user record to access their user file in the database
+        try {
+            String email = SecurityContextHolder.getContext().getAuthentication().getName();
+            User user = userService.findUserByEmail(email);
+            //Add their favorites to the view model
+            Set<Wine> userFavorites = user.getFavorites();
+            model.addAttribute("favorites", userFavorites);
+        }catch(Exception e) {
+            User unregistered = new User();
+            Set<Wine> userFavorites = unregistered.getFavorites();
+            model.addAttribute("favorites", userFavorites);
+        }
+        Wine wine = new Wine();
+        model.addAttribute("wine", wine);
+        return "/user/favorites";
+    }
+
+    @PostMapping("/user/favoriteRemove")
+    public String favoriteRemove(@ModelAttribute("wine") Wine wine, Model model) {
+        //Remove Wine From User Favorites List
+        //Access user file through the authentication object
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByEmail(email);
-        //Add their favorites to the view model
-        Set<Wine> userFavorites = user.getFavorites();
-        Wine wine = new Wine();
-        model.addAttribute("favorites", userFavorites);
-        model.addAttribute("wine", wine);
+        //find the matching wine file from the database and use it to update the favorites list if it exists within it. If it does, add deleted to the model to display an update message, if not, add noExist to display a corresponding message in the template.
+        Wine activeWine = wineService.findWineById(wine.getId());
+        if (user.getFavorites().contains(wine)) {
+            user.getFavorites().remove(activeWine);
+            Set<Wine> userFavorites = user.getFavorites();
+            model.addAttribute("favorites", userFavorites);
+            model.addAttribute("deleted", true);
+            userService.save(user);
+        } else {
+            model.addAttribute("noExist", true);
+            Set<Wine> userFavorites = user.getFavorites();
+            model.addAttribute("favorites", userFavorites);
+        }
         return "/user/favorites";
     }
 }

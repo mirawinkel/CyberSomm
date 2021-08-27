@@ -11,7 +11,7 @@ import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 @SpringBootTest
 class CyberSommApplicationTests {
 
-    private HomeController homeController;
+    private final HomeController homeController;
 
     @Autowired
     public CyberSommApplicationTests(HomeController homeController) {

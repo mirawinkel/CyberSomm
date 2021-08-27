@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class SeleniumTests {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     @Autowired
     public SeleniumTests(WebDriver driver) {
