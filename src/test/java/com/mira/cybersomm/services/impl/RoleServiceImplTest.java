@@ -32,7 +32,7 @@ public class RoleServiceImplTest {
 
     @ParameterizedTest
     @ValueSource(ints={1,2})
-    void RoleIdTest(int idNumber) {
+    void FindRoleByIdTest(int idNumber) {
         assertNotNull(roleService.findRoleById(idNumber));
     }
 }

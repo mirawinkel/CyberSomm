@@ -10,5 +10,4 @@ public interface UserService {
     void encodePassword(User source);
     User findUserByUsername(String name);
     Iterable<User> findUsers();
-
 }

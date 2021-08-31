@@ -1,5 +1,7 @@
 package com.mira.cybersomm.controllers;
 
+import com.mira.cybersomm.exceptions.NoSqlRecordException;
+import com.mira.cybersomm.exceptions.SqlError;
 import com.mira.cybersomm.models.Role;
 import com.mira.cybersomm.models.User;
 import com.mira.cybersomm.models.Vendor;
@@ -154,7 +156,7 @@ public class ConsoleController {
     }
 
     @GetMapping("/user/favorites")
-    public String favorites(Model model) {
+    public String favorites(Model model) throws NoSqlRecordException {
         //utilize the authenticated user record to access their user file in the database
         try {
             String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -166,6 +168,7 @@ public class ConsoleController {
             User unregistered = new User();
             Set<Wine> userFavorites = unregistered.getFavorites();
             model.addAttribute("favorites", userFavorites);
+            throw new NoSqlRecordException("No user record when utilizing built in admin class", e, SqlError.NO_RECORD_CHOSEN);
         }
         Wine wine = new Wine();
         model.addAttribute("wine", wine);
